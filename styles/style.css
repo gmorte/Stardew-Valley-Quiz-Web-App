@@ -69,6 +69,10 @@ h1 {
   height: auto;
 }
 
+#formNombre{
+  width: 160px;
+}
+
 @font-face {
   font-family: "Stardew-Valley";
   src: url("/fonts/Stardew_Valley.ttf") format("truetype");

@@ -9,6 +9,11 @@ import { UI } from "./models/Ui.js";
  * @param {UI} ui ui object
  */
 const renderPage = (quiz, ui) => {
+
+  /* if(quiz.Status == false) Mostrar Pantalla Inici, si clicka empieza quiz.Status == true
+     Si clicka rankings -> mostra ranking + button salir
+  
+  */
   if (quiz.isEnded()) {
     ui.showScores(quiz.score);
   } else {
