@@ -5,8 +5,7 @@ body {
 }
 
 body {
-  /*background: #272343;*/
-  background: url(/img/wallpapersden.com_stardew-valley_1920x1080.jpg);
+  background: #272343;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +13,7 @@ body {
 }
 
 #quiz {
-  /*background: #e3f6f5;*/
+  background: #e3f6f5;
   width: 30rem;
   padding: 4rem;
   text-align: center;
@@ -28,26 +27,16 @@ h1 {
 }
 
 #question {
-  font-size: 2rem;
-  /*font-size: 1.7rem;*/
-  /*color: #5a6772;*/
-  color:  #572300 ;
-  font-family: "Stardew-Valley";
+  font-size: 1.7rem;
+  color: #5a6772;
 }
 
 .button {
-  /*background-color: #34a3a3;*/
-  background-color: #F1AE64;
-  border-color: #79320E;
-  /*color: white;*/
-  color: #572300;
-  /*width: 250px;*/
-  width: 200px;
-  /*font-size: 20px;*/
-  font-size: 25px;
-  font-family: "Stardew-Valley";
+  background-color: #34a3a3;
+  color: white;
+  width: 250px;
+  font-size: 20px;
   border-radius: 0.3rem;
-  border-width: 2px;
   padding: 10px 20px;
   margin: 10px 40px 10px;
 }
@@ -58,20 +47,5 @@ h1 {
 }
 
 #progress {
-  /*font-size: 20px;*/
-  font-size: 30px;
-  font-family: "Stardew-Valley";
-  color: #572300;
-}
-
-#logo-stardew {
-  max-width: 100%;
-  height: auto;
-}
-
-@font-face {
-  font-family: "Stardew-Valley";
-  src: url("/fonts/Stardew_Valley.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
+  font-size: 20px;
 }
