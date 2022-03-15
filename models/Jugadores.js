@@ -1,5 +1,5 @@
 import { main } from "../app.js";
-export { addPlayer, showRankings };
+export { getJugadores, addPlayer, showRankings };
 
 let jugadores = [];
 
@@ -8,24 +8,28 @@ function addPlayer(nombre, puntos) {
 
   jugadores.push(element);
 
+  localStorageJugadores(jugadores);
+}
+
+function showRankings() {
+  ///
+  /*METER EN UNA FUNCION*/
   jugadores.sort((a, b) => {
-    if (a.puntos > b.puntos) {
+    if (a.puntos < b.puntos) {
       return 1;
     }
-    if (a.puntos < b.puntos) {
+    if (a.puntos > b.puntos) {
       return -1;
     }
-    if (a.nombre.toLowerCase > b.nombre.toLowerCase) {
+    if (a.nombre.toLowerCase < b.nombre.toLowerCase) {
       return 1;
     }
-    if (a.nombre.toLowerCase < b.nombre.toLowerCase) {
+    if (a.nombre.toLowerCase > b.nombre.toLowerCase) {
       return -1;
     }
     return 0;
   });
-}
-
-function showRankings() {
+  ///
   const alltable = document.createElement("table");
   alltable.id = "table";
   const row1 = document.createElement("tr");
@@ -70,7 +74,7 @@ function showRankings() {
   volverButton2.type = "submit";
   volverButton2.id = "btnVolver2";
   volverButton2.onclick = function () {
-    location.reload()
+    location.reload();
   };
 
   const element = document.getElementById("quiz");
@@ -81,4 +85,18 @@ function showRankings() {
   document.getElementById("jugarButton").style.display = "none";
   document.getElementById("rankingButton").style.display = "none";
   document.getElementById("barra").style.display = "none";
+}
+
+function getJugadores() {
+  var storedList = localStorage.getItem("localJugadores");
+  if (storedList == null) {
+    friendList = [];
+  } else {
+    jugadores = JSON.parse(storedList);
+  }
+  return jugadores;
+}
+
+function localStorageJugadores(array) {
+  localStorage.setItem("localJugadores", JSON.stringify(array));
 }

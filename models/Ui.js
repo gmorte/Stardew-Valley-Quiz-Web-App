@@ -53,6 +53,9 @@ export class UI {
     addButton.onclick = function () {
       var valorInput = document.getElementById("formNombre").value;
       addPlayer(valorInput, score);
+      /////////
+      //LOCALSTORAGE
+      ////////
       document.getElementById("anadirButton").style.display = "none";
       document.getElementById("formNombre").style.display = "none";
       document.getElementById("btnVolver").style.display = "none";
@@ -71,9 +74,8 @@ export class UI {
     const quizEndHTML = `
     <h1>Puntos: ${score}
     </h1>`;
-
     const element = document.getElementById("quiz");
-    element.innerHTML = quizEndHTML;
+    element.innerHTML = quizEndHTML
     element.append(input);
     element.append(addButton);
     element.append(volverButton);

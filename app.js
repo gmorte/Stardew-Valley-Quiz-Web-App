@@ -1,5 +1,6 @@
 // @ts-check
 import { questions } from "./data/questions.js";
+import { getJugadores } from "./models/Jugadores.js";
 import { Quiz } from "./models/Quiz.js";
 import { UI } from "./models/Ui.js";
 
@@ -40,6 +41,7 @@ export function startQuiz() {
 export function main() {
   const ui = new UI();
   ui.showHome();
+  getJugadores();
 }
 
 main();
