@@ -8,12 +8,11 @@ import { UI } from "./models/Ui.js";
  * @param {Quiz} quiz the main quiz object
  * @param {UI} ui ui object
  */
-const renderPage = (quiz, ui) => {
-
+function renderPage(quiz, ui) {
   /* if(quiz.Status == false) Mostrar Pantalla Inici, si clicka empieza quiz.Status == true
      Si clicka rankings -> mostra ranking + button salir
-  
   */
+
   if (quiz.isEnded()) {
     ui.showScores(quiz.score);
   } else {
@@ -24,13 +23,23 @@ const renderPage = (quiz, ui) => {
     });
     ui.showProgress(quiz.questionIndex + 1, quiz.questions.length);
   }
-};
+}
 
-function main() {
+export function startQuiz() {
   const quiz = new Quiz(questions);
   const ui = new UI();
 
+  document.getElementById("logo-stardew").style.display = "none";
+  document.getElementById("jugarButton").style.display = "none";
+  document.getElementById("rankingButton").style.display = "none";
+  document.getElementById("barra").style.display = "none";
+
   renderPage(quiz, ui);
+}
+
+export function main() {
+  const ui = new UI();
+  ui.showHome();
 }
 
 main();

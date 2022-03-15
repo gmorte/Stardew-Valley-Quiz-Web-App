@@ -11,6 +11,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-size: cover;
+  
 }
 
 #quiz {
@@ -21,10 +23,11 @@ body {
 }
 
 h1 {
-  color: #57636e;
+  color: #572300;
   font-size: 3rem;
   text-align: center;
   padding: 2px 0;
+  font-family: "Stardew-Valley";
 }
 
 #question {
@@ -79,3 +82,32 @@ h1 {
   font-style: normal;
   font-weight: normal;
 }
+
+#table, tr, th, td {
+border-collapse: collapse;
+background-color: #f1ae64;
+border-color: #79320E;
+border: solid 2px;
+color: #572300;
+width: 130px;
+font-size: 25px;
+font-weight: normal;
+font-family: "Stardew-Valley";
+border-radius: 0.3rem;
+padding: 10px 20px;
+margin: 10px 40px 10px;
+text-align: center;
+table-layout: fixed;
+margin: 0 auto;
+}
+
+input{
+  text-align: center;
+}
+
+
+  
+  
+
+
+

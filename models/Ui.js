@@ -1,4 +1,5 @@
-import {Jugador} from './Jugador.js'
+import { addPlayer, showRankings } from "./Jugadores.js";
+import { main, startQuiz } from "../app.js";
 
 export class UI {
   constructor() {}
@@ -42,34 +43,40 @@ export class UI {
     input.type = "text";
     input.id = "formNombre";
     input.className = "button";
+    input.maxLength = "12";
 
     const addButton = document.createElement("button");
     addButton.className = "button";
-    addButton.innerHTML = "Añadir";
+    addButton.id = "anadirButton";
+    addButton.innerHTML = "Guardar";
     addButton.type = "submit";
     addButton.onclick = function () {
       var valorInput = document.getElementById("formNombre").value;
-      //console.log(valorInput);
-      const newJugador = new Jugador(valorInput, score);
-      console.log(newJugador.datos());
+      addPlayer(valorInput, score);
+      document.getElementById("anadirButton").style.display = "none";
+      document.getElementById("formNombre").style.display = "none";
+      document.getElementById("btnVolver").style.display = "none";
+      showRankings();
     };
 
-    //
-    /*const quizEndHTML = `
-    <h1>Result</h1>
-    <h2>Your Score: ${score}</h2>
-    `*/
+    const volverButton = document.createElement("button");
+    volverButton.className = "button";
+    volverButton.innerHTML = "Inicio";
+    volverButton.type = "submit";
+    volverButton.id = "btnVolver";
+    volverButton.onclick = function () {
+      location.reload();
+    };
+
     const quizEndHTML = `
-    <h2>Puntos: ${score}</h2>
-    `;
+    <h1>Puntos: ${score}
+    </h1>`;
 
     const element = document.getElementById("quiz");
-    element.style.fontFamily = "Stardew-Valley";
-    element.style.fontSize = "30px";
-    element.style.color = "#572300";
     element.innerHTML = quizEndHTML;
     element.append(input);
     element.append(addButton);
+    element.append(volverButton);
   }
 
   /**
@@ -79,6 +86,38 @@ export class UI {
    */
   showProgress(currentIndex, total) {
     const element = document.getElementById("progress");
-    element.innerHTML = /*`Question*/ `${currentIndex} of ${total}`;
+    element.innerHTML = `${currentIndex} of ${total}`;
+  }
+
+  showHome() {
+    const addLogo = document.createElement("img");
+    addLogo.src = "img/58f367aca4fa116215a923ef.png";
+    addLogo.id = "logo-stardew";
+
+    const jugarButton = document.createElement("button");
+    jugarButton.id = "jugarButton";
+    jugarButton.className = "button";
+    jugarButton.innerHTML = "Jugar";
+    jugarButton.type = "submit";
+    jugarButton.onclick = startQuiz;
+
+    const rankingButton = document.createElement("button");
+    rankingButton.id = "rankingButton";
+    rankingButton.className = "button";
+    rankingButton.innerHTML = "Ranking";
+    rankingButton.type = "submit";
+    rankingButton.onclick = function () {
+      showRankings();
+    };
+
+    const barra = document.createElement("hr");
+    barra.id = "barra";
+
+    const element = document.getElementById("quiz");
+    element.append(addLogo);
+    element.append(barra);
+    //element.append(textQuiz);
+    element.append(jugarButton);
+    element.append(rankingButton);
   }
 }
