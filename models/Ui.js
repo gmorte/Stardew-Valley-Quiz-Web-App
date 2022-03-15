@@ -1,5 +1,5 @@
 import { addPlayer, showRankings } from "./Jugadores.js";
-import { main, startQuiz } from "../app.js";
+import { startQuiz } from "../app.js";
 
 export class UI {
   constructor() {}
@@ -75,7 +75,7 @@ export class UI {
     <h1>Puntos: ${score}
     </h1>`;
     const element = document.getElementById("quiz");
-    element.innerHTML = quizEndHTML
+    element.innerHTML = quizEndHTML;
     element.append(input);
     element.append(addButton);
     element.append(volverButton);
@@ -121,5 +121,8 @@ export class UI {
     //element.append(textQuiz);
     element.append(jugarButton);
     element.append(rankingButton);
+
+    document.getElementById("temporizador").style.display = "none";
+
   }
 }

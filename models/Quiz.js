@@ -34,7 +34,7 @@ export class Quiz {
     console.log(answer);
 
     if (this.getQuestionIndex().correctAnswer(answer)) {
-      this.score++;
+      this.score++; //AFEGIR AQUI EL TEMPORIZADOR.CONTADOR.. let total = temporizador.contador;
     }
 
     this.questionIndex++;

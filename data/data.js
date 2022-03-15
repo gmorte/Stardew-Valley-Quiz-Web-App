@@ -7,7 +7,7 @@ export const data = [
 
   {
     question: "Que lenguaje no es orientado a objetos",
-    choices: ["java", "haskell", "c++", "python"],
+    choices: ["java", "haskell", "c++", "python", "Ruby"],
     answer: "haskell",
   },
 
