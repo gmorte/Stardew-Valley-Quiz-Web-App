@@ -63,7 +63,8 @@ function showRankings() {
 
     var nombre = "b" + index;
     nombre = document.createElement("th");
-    if (jugadores.length == 0) {
+    
+    if (jugadores.length == 0) { //IF JUGADORES is NULL
       nombre.innerHTML = "?";
       row.append(nombre);
     } else {
@@ -74,7 +75,7 @@ function showRankings() {
     var puntos = "c" + index;
     puntos = document.createElement("th");
 
-    if (jugadores.length == 0) {
+    if (jugadores.length == 0) { //IF JUGADORES is NULL
       puntos.innerHTML = "?";
       row.append(puntos);
     }

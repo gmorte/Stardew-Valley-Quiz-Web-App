@@ -21,7 +21,7 @@ export function renderPage(quiz, ui) {
       quiz.guess(currentChoice);
       renderPage(quiz, ui);
     });
-    ui.showProgress(quiz.questionIndex + 1, quiz.questions.length);
+    ui.showProgress(quiz.questionIndex + 1, quiz.questions.length); //MAX 10 EN LUGAR DE LENGTH
   }
 }
 
