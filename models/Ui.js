@@ -103,7 +103,7 @@ export class UI {
    */
   showProgress(currentIndex, total) {
     const element = document.getElementById("progress");
-    element.innerHTML = `${currentIndex} of ${total}`;
+    element.innerHTML = `${currentIndex} de ${total}`;
   }
 
   showHome() {
