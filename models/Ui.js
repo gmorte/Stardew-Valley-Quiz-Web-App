@@ -108,7 +108,7 @@ export class UI {
     const jugarButton = document.createElement("button");
     jugarButton.id = "jugarButton";
     jugarButton.className = "button";
-    jugarButton.textContent = "Jugar";
+    jugarButton.textContent = "Jugamos";
     jugarButton.type = "submit";
     jugarButton.onclick = startQuiz;
 
