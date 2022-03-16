@@ -25,7 +25,7 @@ export const data = [
 
   {
     question:
-      "¿Por qué decide tu personaje irse a vivir a la granja de su abuelo?",
+      "¿Por que decide tu personaje irse a vivir a la granja de su abuelo?",
     choices: [
       "Todas son correctas",
       "Lo hechan del trabajo",
@@ -42,7 +42,7 @@ export const data = [
 
   {
     question: "¿Cuanto tarda la semilla rara en crecer?",
-    choices: ["20 días", "Una estación", "25 días"],
+    choices: ["20 dias", "Una estación", "25 días"],
     answer: "Una estación",
   },
 
@@ -53,25 +53,25 @@ export const data = [
   },
 
   {
-    question: "¿Dónde podemos visitar a Krobus?",
+    question: "¿Donde podemos visitar a Krobus?",
     choices: ["En el desierto", "En las minas", "En las alcantarillas"],
     answer: "En las alcantarillas",
   },
 
   {
-    question: "¿Quién de ellas quiere ser una artista?",
+    question: "¿Quien de ellas quiere ser una artista?",
     choices: ["Abigail", "Haley", "Leah"],
     answer: "Leah",
   },
 
   {
-    question: "¿De quien está enamorado Clint?",
+    question: "¿De quien esta enamorado Clint?",
     choices: ["Caroline", "Marnie", "Emily"],
     answer: "Emily",
   },
 
   {
-    question: "¿Quién és el abuelo de Alex?",
+    question: "¿Quien es el abuelo de Alex?",
     choices: ["Willy", "Lewis", "George"],
     answer: "George",
   },
@@ -83,14 +83,11 @@ export const data = [
   },
 
   {
-    question: "¿Cuál de estas oraciones es falsa?",
+    question: "¿Con quien vive Jas?",
     choices: [
-      "Emily y Haley son hermanas",
-      "Al final del laberinto de Hallowen hay una calabaza dorada",
-      "Para poder casarte necesitas comprar el colgante de sirena a Pierre",
-    ],
+      "Su tía", "Su madre", "Su abuela"],
     answer:
-      "Para poder casarte necesitas comprar el colgante de sirena a Pierre",
+      "Su abuela",
   },
 
   {
@@ -100,13 +97,13 @@ export const data = [
   },
 
   {
-    question: "¿Cual és el máximo número de corazones de una amistad?",
+    question: "¿Cual es el maximo numero de corazones de una amistad?",
     choices: ["12", "10", "5"],
     answer: "10",
   },
 
   {
-    question: "¿Cual és el oficio de Robin?",
+    question: "¿Cual es el oficio de Robin?",
     choices: ["Carpintera", "Enfermera", "Minera"],
     answer: "Carpintera",
   },
@@ -134,12 +131,27 @@ export const data = [
     choices: ["Pescador", "Camarero", "Herrero"],
     answer: "21",
   },
+
+  {
+    question:
+      "¿Cual es el oficio de Sebastian?",
+    choices: ["Programador informatico", "Mecanico", "Electricista"],
+    answer: "Programador informatico",
+  },
+
+  {
+    question:
+      "¿Como se llama el mago?",
+    choices: ["Demetrius", "Rasmodius", "Moebius"],
+    answer: "Rasmodius",
+  },
+  
 ];
 
-function fisherYatesShuffle(arr){
-  for(var i =arr.length-1 ; i>0 ;i--){
-      var j = Math.floor( Math.random() * (i + 1) ); 
-      [arr[i],arr[j]]=[arr[j],arr[i]]; 
+function fisherYatesShuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
 }
 

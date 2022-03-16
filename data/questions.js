@@ -1,12 +1,15 @@
 import { Question } from "../models/Question.js";
 import { data } from "./data.js";
 
- export const questions = data.map(
+const newQuestions = data.map(
   function (question) {
-    return new Question(question.question, question.choices, question.answer)}
-); 
+    return new Question(question.question, question.choices, question.answer)
+  }
+);
 
-//PONER DE ALGUNA FORMA RECORRER MAX 10 PREGUNTAS O DEVOLVER SOLO 10.
+export const questions = newQuestions.slice(0, 10);
+
+
 
 
 
