@@ -121,7 +121,7 @@ export class UI {
     const rankingButton = document.createElement("button");
     rankingButton.id = "rankingButton";
     rankingButton.className = "button";
-    rankingButton.innerHTML = "Ranking";
+    rankingButton.innerHTML = "Rankings";
     rankingButton.type = "submit";
     rankingButton.onclick = function () {
       showRankings();
