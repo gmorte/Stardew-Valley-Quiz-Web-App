@@ -79,7 +79,7 @@ function showRankings() {
 function getJugadores() {
   var storedList = localStorage.getItem("localJugadores");
   if (storedList == null) {
-    friendList = [];
+    storedList = [];
   } else {
     jugadores = JSON.parse(storedList);
   }
