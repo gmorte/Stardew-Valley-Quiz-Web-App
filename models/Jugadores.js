@@ -54,6 +54,8 @@ function showRankings() {
     location.reload();
   };
 
+  element.append(volverButton);
+
   for (let index = 0; index < 10; index++) {
     var row = "a" + index;
     row = document.createElement("tr");
@@ -71,7 +73,6 @@ function showRankings() {
   }
 
   element.append(alltable);
-  element.append(volverButton);
 
 
 }
