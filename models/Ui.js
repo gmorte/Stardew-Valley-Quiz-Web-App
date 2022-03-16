@@ -2,7 +2,7 @@ import { addPlayer, showRankings } from "./Jugadores.js";
 import { startQuiz } from "../app.js";
 
 export class UI {
-  constructor() { }
+  constructor() {}
 
   /**
    *
@@ -54,12 +54,6 @@ export class UI {
     addButton.onclick = function () {
       var valorInput = document.getElementById("formNombre").value;
       addPlayer(valorInput, score);
-      document.getElementById("formNombre").style.display = "none";
-      document.getElementById("anadirButton").style.display = "none";
-      document.getElementById("btnVolver").style.display = "none";
-      document.getElementById("totalPuntos").style.display = "none";
-      document.getElementById("Puntos").style.display = "none";
-      document.getElementById("infoFinal").style.display = "none";
       showRankings();
     };
 
@@ -74,17 +68,17 @@ export class UI {
 
     const totalPuntos = document.createElement("h1");
     totalPuntos.id = "totalPuntos";
-    totalPuntos.className = "estiloPuntos"
-    totalPuntos.innerHTML = `Puntos: `
+    totalPuntos.className = "estiloPuntos";
+    totalPuntos.innerHTML = `Puntos: `;
 
     const Puntos = document.createElement("h1");
     Puntos.id = "Puntos";
-    Puntos.className = "estiloPuntos"
-    Puntos.innerHTML = `${score}`
+    Puntos.className = "estiloPuntos";
+    Puntos.innerHTML = `${score}`;
 
     const infoFinal = document.createElement("h2");
     infoFinal.id = "infoFinal";
-    infoFinal.innerHTML = "Muy bien!" //Funcion if o switch 3 mensajes diferentes.
+    infoFinal.innerHTML = "Muy bien!"; //Funcion if o switch 3 mensajes diferentes.
 
     const element = document.getElementById("quiz");
     element.innerHTML = "";
@@ -114,14 +108,14 @@ export class UI {
     const jugarButton = document.createElement("button");
     jugarButton.id = "jugarButton";
     jugarButton.className = "button";
-    jugarButton.innerHTML = "Jugar";
+    jugarButton.textContent = "Jugar";
     jugarButton.type = "submit";
     jugarButton.onclick = startQuiz;
 
     const rankingButton = document.createElement("button");
     rankingButton.id = "rankingButton";
     rankingButton.className = "button";
-    rankingButton.innerHTML = "Rankings";
+    rankingButton.textContent = "Ranking";
     rankingButton.type = "submit";
     rankingButton.onclick = function () {
       showRankings();
@@ -138,6 +132,32 @@ export class UI {
     element.append(rankingButton);
 
     document.getElementById("temporizador").style.display = "none";
+  }
 
+  showQuiz() {
+    const element = document.getElementById("quiz");
+
+    element.innerHTML = "";
+
+    const tem = document.createElement("p");
+    tem.id = "temporizador";
+    element.append(tem);
+
+    const quest = document.createElement("h2");
+    quest.id = "question";
+    element.append(quest);
+
+    const prog = document.createElement("p");
+    prog.id = "progress";
+    element.append(prog);
+
+    const choi = document.createElement("div");
+    choi.id = "choices";
+    element.append(choi);
+
+    /* document.getElementById("logo-stardew").style.display = "none";
+    document.getElementById("jugarButton").style.display = "none";
+    document.getElementById("rankingButton").style.display = "none";
+    document.getElementById("barra").style.display = "none"; */
   }
 }

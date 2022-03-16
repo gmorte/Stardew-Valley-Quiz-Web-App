@@ -28,19 +28,16 @@ export function renderPage(quiz, ui) {
 export function startQuiz() {
   const quiz = new Quiz(questions);
   const ui = new UI();
-
-  document.getElementById("logo-stardew").style.display = "none";
-  document.getElementById("jugarButton").style.display = "none";
-  document.getElementById("rankingButton").style.display = "none";
-  document.getElementById("barra").style.display = "none";
-
+  ui.showQuiz();
   renderPage(quiz, ui);
 }
 
 export function main() {
+  getJugadores();
   const ui = new UI();
   ui.showHome();
-  getJugadores();
 }
 
 main();
+
+

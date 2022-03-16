@@ -1,10 +1,10 @@
 import { renderPage } from "../app.js";
 
 export function Temp(quiz, ui) {
-  var timeLeft = 29;
+  var timeLeft = 30;
 
   var elem = document.getElementById("temporizador");
-  elem.innerHTML = '30';
+  elem.innerHTML = "30";
 
   var timerId = setInterval(countdown, 1000);
 
