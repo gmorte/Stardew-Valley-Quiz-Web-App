@@ -5,37 +5,57 @@ body {
 }
 
 body {
-  background: #272343;
+  background: url(/img/wallpapersden.com_stardew-valley_1920x1080.jpg);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-size: cover;
 }
 
 #quiz {
-  background: #e3f6f5;
   width: 30rem;
-  padding: 4rem;
+  /*padding: 4rem;*/
   text-align: center;
+  margin: 0 auto;
 }
 
-h1 {
-  color: #57636e;
+.estiloPuntos{
+  color:plum;
+  text-shadow: purple 3px 3px;
+  font-size: 4rem;
+  text-align: center;
+  padding: 2px 0;
+  font-family: "Stardew-Valley";
+  margin: 0 auto;
+}
+
+#infoFinal{
+  color: plum;
+  text-shadow: purple 2px 2px;
   font-size: 3rem;
   text-align: center;
   padding: 2px 0;
+  font-family: "Stardew-Valley";
+  margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 #question {
-  font-size: 1.7rem;
-  color: #5a6772;
+  font-size: 2rem;
+  color:  #572300 ;
+  font-family: "Stardew-Valley";
+  margin: auto;
+  padding: 5px;
 }
 
 .button {
-  background-color: #34a3a3;
-  color: white;
-  width: 250px;
-  font-size: 20px;
+  background-color: #F1AE64;
+  border: #79320E solid 2px;
+  color: #572300;
+  width: 200px;
+  font-size: 25px;
+  font-family: "Stardew-Valley";
   border-radius: 0.3rem;
   padding: 10px 20px;
   margin: 10px 40px 10px;
@@ -43,9 +63,66 @@ h1 {
 
 .button:hover {
   cursor: pointer;
-  background: #57636e;
+  background-color:darkolivegreen;
+  transition: 1s;
 }
 
 #progress {
-  font-size: 20px;
+  font-size: 30px;
+  font-family: "Stardew-Valley";
+  color: #572300;
 }
+
+#logo-stardew {
+  max-width: 95%;
+  height: auto;
+  margin-bottom: 45px;
+}
+
+#formNombre{
+  width: 160px;
+}
+
+@font-face {
+  font-family: "Stardew-Valley";
+  src: url("/fonts/Stardew_Valley.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+#table, tr, th, td {
+border-collapse: collapse;
+background-color: #f1ae64;
+border-color: #79320E;
+border: solid 2px;
+color: #572300;
+width: 130px;
+font-size: 25px;
+font-weight: normal;
+font-family: "Stardew-Valley";
+border-radius: 0.3rem;
+padding: 5px 20px;
+margin: 10px 40px 10px;
+text-align: center;
+table-layout: fixed;
+margin: 0 auto;
+}
+
+input{
+  text-align: center;
+}
+
+#temporizador{
+  font-family: "Stardew-Valley";
+  font-size: 150px;
+  margin: 0 auto;
+  color:plum;
+  text-shadow: purple 3px 3px;
+}
+
+
+  
+  
+
+
+

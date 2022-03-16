@@ -1,5 +1,4 @@
 // @ts-check
-
 import { Question } from "./Question.js";
 
 export class Quiz {
@@ -31,10 +30,12 @@ export class Quiz {
    * @param {string} answer some text
    */
   guess(answer) {
+
     console.log(answer);
 
     if (this.getQuestionIndex().correctAnswer(answer)) {
-      this.score++;
+      var points = document.getElementById("temporizador").title;
+      this.score += parseInt(points);
     }
 
     this.questionIndex++;
