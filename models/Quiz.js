@@ -1,6 +1,7 @@
 // @ts-check
-
 import { Question } from "./Question.js";
+import { Temp } from "./Temporizador.js";
+import { UI } from "./Ui.js";
 
 export class Quiz {
   questionIndex = 0;
@@ -31,10 +32,11 @@ export class Quiz {
    * @param {string} answer some text
    */
   guess(answer) {
+
     console.log(answer);
 
     if (this.getQuestionIndex().correctAnswer(answer)) {
-      this.score++; //AFEGIR AQUI EL TEMPORIZADOR.CONTADOR.. let total = temporizador.contador;
+      this.score++; 
     }
 
     this.questionIndex++;

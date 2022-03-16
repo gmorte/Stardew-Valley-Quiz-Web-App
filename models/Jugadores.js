@@ -1,4 +1,3 @@
-import { main } from "../app.js";
 export { getJugadores, addPlayer, showRankings };
 
 let jugadores = [];
@@ -43,7 +42,7 @@ function showRankings() {
   row1.append(cap1);
   row1.append(cap2);
 
-  for (let index = 0; index < jugadores.length; index++) {
+  for (let index = 0; index < 10; index++) {
     var row = "a" + index;
     row = document.createElement("tr");
     alltable.append(row);
@@ -66,6 +65,7 @@ function showRankings() {
 
     const element = jugadores[index];
     console.log(element);
+    
   }
 
   const volverButton2 = document.createElement("button");

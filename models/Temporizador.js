@@ -1,16 +1,22 @@
 import { renderPage } from "../app.js";
 
 export function Temp(quiz, ui) {
-  var timeLeft = 2;
+  var timeLeft = 29;
 
   var elem = document.getElementById("temporizador");
+  elem.innerHTML = 30;
 
   var timerId = setInterval(countdown, 1000);
 
+  var check = quiz.getQuestionIndex();
+
   function countdown() {
-    if (timeLeft == -1) {
+    if(check != quiz.getQuestionIndex()){
+     // var cuentaPuntos = timeLeft;
+      timeLeft = 30;
+    } else if (timeLeft == -1) {
       clearTimeout(timerId);
-      elem.innerHTML = 3;
+      elem.innerHTML = 30;
       quiz.questionIndex++;
       renderPage(quiz, ui);
     } else {
@@ -19,3 +25,5 @@ export function Temp(quiz, ui) {
     }
   }
 }
+
+

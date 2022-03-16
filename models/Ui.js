@@ -2,7 +2,7 @@ import { addPlayer, showRankings } from "./Jugadores.js";
 import { startQuiz } from "../app.js";
 
 export class UI {
-  constructor() {}
+  constructor() { }
 
   /**
    *
@@ -44,6 +44,7 @@ export class UI {
     input.id = "formNombre";
     input.className = "button";
     input.maxLength = "12";
+    input.placeholder = "Tu nombre:";
 
     const addButton = document.createElement("button");
     addButton.className = "button";
@@ -53,12 +54,12 @@ export class UI {
     addButton.onclick = function () {
       var valorInput = document.getElementById("formNombre").value;
       addPlayer(valorInput, score);
-      /////////
-      //LOCALSTORAGE
-      ////////
-      document.getElementById("anadirButton").style.display = "none";
       document.getElementById("formNombre").style.display = "none";
+      document.getElementById("anadirButton").style.display = "none";
       document.getElementById("btnVolver").style.display = "none";
+      document.getElementById("totalPuntos").style.display = "none";
+      document.getElementById("Puntos").style.display = "none";
+      document.getElementById("infoFinal").style.display = "none";
       showRankings();
     };
 
@@ -71,11 +72,25 @@ export class UI {
       location.reload();
     };
 
-    const quizEndHTML = `
-    <h1>Puntos: ${score}
-    </h1>`;
+    const totalPuntos = document.createElement("h1");
+    totalPuntos.id = "totalPuntos";
+    totalPuntos.className = "estiloPuntos"
+    totalPuntos.innerHTML = `Puntos: `
+
+    const Puntos = document.createElement("h1");
+    Puntos.id = "Puntos";
+    Puntos.className = "estiloPuntos"
+    Puntos.innerHTML = `${score}`
+
+    const infoFinal = document.createElement("h2");
+    infoFinal.id = "infoFinal";
+    infoFinal.innerHTML = "Muy bien!" //Funcion if o switch 3 mensajes diferentes.
+
     const element = document.getElementById("quiz");
-    element.innerHTML = quizEndHTML;
+    element.innerHTML = "";
+    element.append(totalPuntos);
+    element.append(Puntos);
+    element.append(infoFinal);
     element.append(input);
     element.append(addButton);
     element.append(volverButton);
@@ -114,11 +129,11 @@ export class UI {
 
     const barra = document.createElement("hr");
     barra.id = "barra";
+    barra.style.display = "none";
 
     const element = document.getElementById("quiz");
     element.append(addLogo);
     element.append(barra);
-    //element.append(textQuiz);
     element.append(jugarButton);
     element.append(rankingButton);
 
