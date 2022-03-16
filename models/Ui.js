@@ -130,8 +130,6 @@ export class UI {
     element.append(barra);
     element.append(jugarButton);
     element.append(rankingButton);
-
-    document.getElementById("temporizador").style.display = "none";
   }
 
   showQuiz() {
@@ -154,10 +152,5 @@ export class UI {
     const choi = document.createElement("div");
     choi.id = "choices";
     element.append(choi);
-
-    /* document.getElementById("logo-stardew").style.display = "none";
-    document.getElementById("jugarButton").style.display = "none";
-    document.getElementById("rankingButton").style.display = "none";
-    document.getElementById("barra").style.display = "none"; */
   }
 }

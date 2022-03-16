@@ -63,17 +63,29 @@ function showRankings() {
 
     var nombre = "b" + index;
     nombre = document.createElement("th");
-    nombre.innerHTML = jugadores[index].nombre.toString();
-    row.append(nombre);
+    if (jugadores.length == 0) {
+      nombre.innerHTML = "?";
+      row.append(nombre);
+    } else {
+      nombre.innerHTML = jugadores[index].nombre.toString();
+      row.append(nombre);
+    }
 
     var puntos = "c" + index;
     puntos = document.createElement("th");
+
+    if (jugadores.length == 0) {
+      puntos.innerHTML = "?";
+      row.append(puntos);
+    }
+
     puntos.innerHTML = jugadores[index].puntos.toString();
     row.append(puntos);
   }
 
   element.append(alltable);
-
+  
+  element.append(volverButton);
 
 }
 
