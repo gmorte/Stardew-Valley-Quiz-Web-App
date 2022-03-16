@@ -5,7 +5,7 @@ body {
 }
 
 body {
-  background: url(/img/wallpapersden.com_stardew-valley_1920x1080.jpg);
+  background: url("/img/wallpapersden.com_stardew-valley_1920x1080.jpg");
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,7 +85,7 @@ body {
 
 @font-face {
   font-family: "Stardew-Valley";
-  src: url("/fonts/Stardew_Valley.ttf") format("truetype");
+  src: url(/fonts/Stardew_Valley.ttf) format("truetype");
   font-style: normal;
   font-weight: normal;
 }
