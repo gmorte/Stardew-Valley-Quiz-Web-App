@@ -12,7 +12,7 @@ export function Temp(quiz, ui) {
 
   function countdown() {
     if(check != quiz.getQuestionIndex()){
-     // var cuentaPuntos = timeLeft;
+      var cuentaPuntos = timeLeft;
       timeLeft = 30;
     } else if (timeLeft == -1) {
       clearTimeout(timerId);
