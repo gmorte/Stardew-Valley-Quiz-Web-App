@@ -85,15 +85,15 @@ export const data = [
   {
     question: "¿Con quien vive Jas?",
     choices: [
-      "Su tía", "Su madre", "Su abuela"],
+      "Su tia", "Su madre", "Su abuela"],
     answer:
-      "Su tía",
+      "Su tia",
   },
 
   {
     question: "¿Cuantos corazones de amistad tienes para tu esposo/a?",
     choices: ["14", "10", "20"],
-    answer: "25",
+    answer: "14",
   },
 
   {
@@ -120,7 +120,7 @@ export const data = [
 
   {
     question:
-      "¿Cual es el máximo de puntos obteninles en la evaluación del abuelo?",
+      "¿Cual es el maximo de puntos obtenibles en la evaluación del abuelo?",
     choices: ["100", "15", "21"],
     answer: "21",
   },
@@ -129,7 +129,7 @@ export const data = [
     question:
       "¿Cual es el oficio de Gus?",
     choices: ["Pescador", "Camarero", "Herrero"],
-    answer: "21",
+    answer: "Camarero",
   },
 
   {
