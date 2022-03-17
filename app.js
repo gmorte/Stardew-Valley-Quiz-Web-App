@@ -25,8 +25,8 @@ export function renderPage(quiz, ui) {
   }
 }
 
-export function startQuiz() {
-  const quiz = new Quiz(questions);
+export function startQuiz() {                              
+  const quiz = new Quiz(questions); //if level == easy { const quiz = new Quiz (easyQuestions)} else if level == normal {... new Quiz (normalQuestions)} else {(hardQuestions)}
   const ui = new UI();
   ui.showQuiz();
   renderPage(quiz, ui);
