@@ -33,6 +33,7 @@ export class Quiz {
     console.log(answer);
 
     if (this.getQuestionIndex().correctAnswer(answer)) {
+
       var points = document.getElementById("temporizador").title;
 
       if (document.getElementById("temporizador").textContent == "Go!") {
@@ -42,6 +43,6 @@ export class Quiz {
       }
     }
 
-    this.questionIndex++;
+     this.questionIndex++;
   }
 }

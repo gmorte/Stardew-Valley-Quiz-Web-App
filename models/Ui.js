@@ -1,8 +1,9 @@
 import { addPlayer, showRankings } from "./Jugadores.js";
 import { startQuiz } from "../app.js";
+import { fisherYatesShuffle } from "../data/data.js";
 
 export class UI {
-  constructor() {}
+  constructor() { }
 
   /**
    *
@@ -21,10 +22,13 @@ export class UI {
     const choicesContainer = document.getElementById("choices");
     choicesContainer.innerHTML = "";
 
+    fisherYatesShuffle(choices);
+
     for (let i = 0; i < choices.length; i++) {
       const button = document.createElement("button");
       button.innerText = choices[i];
       button.className = "button";
+      button.id = "btn" + i;
       button.addEventListener("click", () => callback(choices[i]));
 
       choicesContainer.append(button);
@@ -78,7 +82,17 @@ export class UI {
 
     const infoFinal = document.createElement("h2");
     infoFinal.id = "infoFinal";
-    infoFinal.innerHTML = "Muy bien!"; //Funcion if o switch 3 mensajes diferentes.
+    if (score < 50) {
+      infoFinal.innerHTML = "¡UUUUUH!";
+    } else if (score > 50 && score < 100) {
+      infoFinal.innerHTML = "¡MUY BIEN!";
+    } else if (score > 100 && score < 200) {
+      infoFinal.innerHTML = "!PERFECTO!";
+    } else if (score > 200 && score < 290) {
+      infoFinal.innerHTML = "¡NIVEL EXPERTO!";
+    } else if (score > 290) {
+      infoFinal.innerHTML = "¡MASTER!"
+    }
 
     const element = document.getElementById("quiz");
     element.innerHTML = "";

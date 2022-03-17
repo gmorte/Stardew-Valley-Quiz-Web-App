@@ -145,10 +145,17 @@ export const data = [
     choices: ["Demetrius", "Rasmodius", "Moebius"],
     answer: "Rasmodius",
   },
+
+  {
+    question:
+      "¿Cual es la mejor arma del juego?",
+    choices: ["Espada galaxia", "Espada infinita", "Katana de lava"],
+    answer: "Espada infinita",
+  },
   
 ];
 
-function fisherYatesShuffle(arr) {
+export function fisherYatesShuffle(arr) {
   for (var i = arr.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
