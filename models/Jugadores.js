@@ -11,8 +11,9 @@ function addPlayer(nombre, puntos) {
 }
 
 function showRankings() {
-  ///
-  /*METER EN UNA FUNCION*/
+  const element = document.getElementById("quiz");
+  element.innerHTML = "";
+
   jugadores.sort((a, b) => {
     if (a.puntos < b.puntos) {
       return 1;
@@ -28,19 +29,32 @@ function showRankings() {
     }
     return 0;
   });
-  ///
+
   const alltable = document.createElement("table");
   alltable.id = "table";
+  element.append(alltable);
+
   const row1 = document.createElement("tr");
+  alltable.append(row1);
 
   const cap1 = document.createElement("th");
   cap1.innerHTML = "Nombre";
+  row1.append(cap1);
+
   const cap2 = document.createElement("th");
   cap2.innerHTML = "Puntos";
-
-  alltable.append(row1);
-  row1.append(cap1);
   row1.append(cap2);
+
+  const volverButton = document.createElement("button");
+  volverButton.className = "button";
+  volverButton.innerHTML = "Inicio";
+  volverButton.type = "submit";
+  volverButton.id = "btnVolver";
+  volverButton.onclick = function () {
+    location.reload();
+  };
+
+  element.append(volverButton);
 
   for (let index = 0; index < 10; index++) {
     var row = "a" + index;
@@ -49,48 +63,37 @@ function showRankings() {
 
     var nombre = "b" + index;
     nombre = document.createElement("th");
-    nombre.innerHTML = jugadores[index].nombre.toString();
+    
+    if (jugadores.length == 0) { //IF JUGADORES is NULL
+      nombre.innerHTML = "?";
+      row.append(nombre);
+    } else {
+      nombre.innerHTML = jugadores[index].nombre.toString();
+      row.append(nombre);
+    }
 
     var puntos = "c" + index;
     puntos = document.createElement("th");
+
+    if (jugadores.length == 0) { //IF JUGADORES is NULL
+      puntos.innerHTML = "?";
+      row.append(puntos);
+    }
+
     puntos.innerHTML = jugadores[index].puntos.toString();
-
-    row.append(nombre);
     row.append(puntos);
-
-    alltable.append(row);
-
-    const element3 = document.getElementById("quiz");
-    element3.append(alltable);
-
-    const element = jugadores[index];
-    console.log(element);
-    
   }
 
-  const volverButton2 = document.createElement("button");
-  volverButton2.className = "button";
-  volverButton2.innerHTML = "Inicio";
-  volverButton2.type = "submit";
-  volverButton2.id = "btnVolver2";
-  volverButton2.onclick = function () {
-    location.reload();
-  };
-
-  const element = document.getElementById("quiz");
   element.append(alltable);
-  element.append(volverButton2);
+  
+  element.append(volverButton);
 
-  document.getElementById("logo-stardew").style.display = "none";
-  document.getElementById("jugarButton").style.display = "none";
-  document.getElementById("rankingButton").style.display = "none";
-  document.getElementById("barra").style.display = "none";
 }
 
 function getJugadores() {
   var storedList = localStorage.getItem("localJugadores");
   if (storedList == null) {
-    friendList = [];
+    storedList = [];
   } else {
     jugadores = JSON.parse(storedList);
   }

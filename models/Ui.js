@@ -1,5 +1,6 @@
 import { addPlayer, showRankings } from "./Jugadores.js";
 import { startQuiz } from "../app.js";
+import { fisherYatesShuffle } from "../data/data.js";
 
 export class UI {
   constructor() { }
@@ -21,10 +22,13 @@ export class UI {
     const choicesContainer = document.getElementById("choices");
     choicesContainer.innerHTML = "";
 
+    fisherYatesShuffle(choices);
+
     for (let i = 0; i < choices.length; i++) {
       const button = document.createElement("button");
       button.innerText = choices[i];
       button.className = "button";
+      button.id = "btn" + i;
       button.addEventListener("click", () => callback(choices[i]));
 
       choicesContainer.append(button);
@@ -54,12 +58,6 @@ export class UI {
     addButton.onclick = function () {
       var valorInput = document.getElementById("formNombre").value;
       addPlayer(valorInput, score);
-      document.getElementById("formNombre").style.display = "none";
-      document.getElementById("anadirButton").style.display = "none";
-      document.getElementById("btnVolver").style.display = "none";
-      document.getElementById("totalPuntos").style.display = "none";
-      document.getElementById("Puntos").style.display = "none";
-      document.getElementById("infoFinal").style.display = "none";
       showRankings();
     };
 
@@ -74,17 +72,27 @@ export class UI {
 
     const totalPuntos = document.createElement("h1");
     totalPuntos.id = "totalPuntos";
-    totalPuntos.className = "estiloPuntos"
-    totalPuntos.innerHTML = `Puntos: `
+    totalPuntos.className = "estiloPuntos";
+    totalPuntos.innerHTML = `Puntos: `;
 
     const Puntos = document.createElement("h1");
     Puntos.id = "Puntos";
-    Puntos.className = "estiloPuntos"
-    Puntos.innerHTML = `${score}`
+    Puntos.className = "estiloPuntos";
+    Puntos.innerHTML = `${score}`;
 
     const infoFinal = document.createElement("h2");
     infoFinal.id = "infoFinal";
-    infoFinal.innerHTML = "Muy bien!" //Funcion if o switch 3 mensajes diferentes.
+    if (score < 50) {
+      infoFinal.innerHTML = "¡UUUUUH!";
+    } else if (score > 50 && score < 100) {
+      infoFinal.innerHTML = "¡MUY BIEN!";
+    } else if (score > 100 && score < 200) {
+      infoFinal.innerHTML = "!PERFECTO!";
+    } else if (score > 200 && score < 290) {
+      infoFinal.innerHTML = "¡NIVEL EXPERTO!";
+    } else if (score > 290) {
+      infoFinal.innerHTML = "¡MASTER!"
+    }
 
     const element = document.getElementById("quiz");
     element.innerHTML = "";
@@ -114,14 +122,14 @@ export class UI {
     const jugarButton = document.createElement("button");
     jugarButton.id = "jugarButton";
     jugarButton.className = "button";
-    jugarButton.innerHTML = "Jugar";
+    jugarButton.textContent = "Jugar";
     jugarButton.type = "submit";
     jugarButton.onclick = startQuiz;
 
     const rankingButton = document.createElement("button");
     rankingButton.id = "rankingButton";
     rankingButton.className = "button";
-    rankingButton.innerHTML = "Ranking";
+    rankingButton.textContent = "Ranking";
     rankingButton.type = "submit";
     rankingButton.onclick = function () {
       showRankings();
@@ -136,8 +144,27 @@ export class UI {
     element.append(barra);
     element.append(jugarButton);
     element.append(rankingButton);
+  }
 
-    document.getElementById("temporizador").style.display = "none";
+  showQuiz() {
+    const element = document.getElementById("quiz");
 
+    element.innerHTML = "";
+
+    const tem = document.createElement("p");
+    tem.id = "temporizador";
+    element.append(tem);
+
+    const quest = document.createElement("h2");
+    quest.id = "question";
+    element.append(quest);
+
+    const prog = document.createElement("p");
+    prog.id = "progress";
+    element.append(prog);
+
+    const choi = document.createElement("div");
+    choi.id = "choices";
+    element.append(choi);
   }
 }

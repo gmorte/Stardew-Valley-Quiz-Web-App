@@ -21,26 +21,23 @@ export function renderPage(quiz, ui) {
       quiz.guess(currentChoice);
       renderPage(quiz, ui);
     });
-    ui.showProgress(quiz.questionIndex + 1, quiz.questions.length);
+    ui.showProgress(quiz.questionIndex + 1, quiz.questions.length); //MAX 10 EN LUGAR DE LENGTH
   }
 }
 
 export function startQuiz() {
   const quiz = new Quiz(questions);
   const ui = new UI();
-
-  document.getElementById("logo-stardew").style.display = "none";
-  document.getElementById("jugarButton").style.display = "none";
-  document.getElementById("rankingButton").style.display = "none";
-  document.getElementById("barra").style.display = "none";
-
+  ui.showQuiz();
   renderPage(quiz, ui);
 }
 
 export function main() {
+  getJugadores();
   const ui = new UI();
   ui.showHome();
-  getJugadores();
 }
 
 main();
+
+

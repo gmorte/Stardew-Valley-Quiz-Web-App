@@ -30,14 +30,19 @@ export class Quiz {
    * @param {string} answer some text
    */
   guess(answer) {
-
     console.log(answer);
 
     if (this.getQuestionIndex().correctAnswer(answer)) {
+
       var points = document.getElementById("temporizador").title;
-      this.score += parseInt(points);
+
+      if (document.getElementById("temporizador").textContent == "Go!") {
+        this.score += 30;
+      } else {
+        this.score += parseInt(points);
+      }
     }
 
-    this.questionIndex++;
+     this.questionIndex++;
   }
 }

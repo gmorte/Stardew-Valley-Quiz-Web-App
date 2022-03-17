@@ -20,8 +20,8 @@ body {
   margin: 0 auto;
 }
 
-.estiloPuntos{
-  color:plum;
+.estiloPuntos {
+  color: plum;
   text-shadow: purple 3px 3px;
   font-size: 4rem;
   text-align: center;
@@ -30,7 +30,7 @@ body {
   margin: 0 auto;
 }
 
-#infoFinal{
+#infoFinal {
   color: plum;
   text-shadow: purple 2px 2px;
   font-size: 3rem;
@@ -43,15 +43,15 @@ body {
 
 #question {
   font-size: 2rem;
-  color:  #572300 ;
+  color: #572300;
   font-family: "Stardew-Valley";
   margin: auto;
   padding: 5px;
 }
 
 .button {
-  background-color: #F1AE64;
-  border: #79320E solid 2px;
+  background-color: #f1ae64;
+  border: #572300 solid 2px;
   color: #572300;
   width: 200px;
   font-size: 25px;
@@ -59,11 +59,12 @@ body {
   border-radius: 0.3rem;
   padding: 10px 20px;
   margin: 10px 40px 10px;
+  transition: 0.5s;
 }
 
 .button:hover {
   cursor: pointer;
-  background-color:darkolivegreen;
+  background-color: #419D78;
   transition: 1s;
 }
 
@@ -79,7 +80,7 @@ body {
   margin-bottom: 45px;
 }
 
-#formNombre{
+#formNombre {
   width: 160px;
 }
 
@@ -90,39 +91,35 @@ body {
   font-weight: normal;
 }
 
-#table, tr, th, td {
-border-collapse: collapse;
-background-color: #f1ae64;
-border-color: #79320E;
-border: solid 2px;
-color: #572300;
-width: 130px;
-font-size: 25px;
-font-weight: normal;
-font-family: "Stardew-Valley";
-border-radius: 0.3rem;
-padding: 5px 20px;
-margin: 10px 40px 10px;
-text-align: center;
-table-layout: fixed;
-margin: 0 auto;
+#table,
+tr,
+th,
+td {
+  border-collapse: collapse;
+  background-color: #f1ae64;
+  border-color: #79320e;
+  border: solid 2px;
+  color: #572300;
+  width: 130px;
+  font-size: 25px;
+  font-weight: normal;
+  font-family: "Stardew-Valley";
+  border-radius: 0.3rem;
+  padding: 5px 20px;
+  margin: 10px 40px 10px;
+  text-align: center;
+  table-layout: fixed;
+  margin: 0 auto;
 }
 
-input{
+input {
   text-align: center;
 }
 
-#temporizador{
+#temporizador {
   font-family: "Stardew-Valley";
   font-size: 150px;
   margin: 0 auto;
-  color:plum;
+  color: plum;
   text-shadow: purple 3px 3px;
 }
-
-
-  
-  
-
-
-
