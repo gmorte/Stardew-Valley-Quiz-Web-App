@@ -8,13 +8,13 @@ export const data = [
   {
     question: "¿En que estación se celebra el festival del Luau?",
     choices: ["Verano", "Otoño", "Primavera"],
-    answer: "haskell",
+    answer: "Verano",
   },
 
   {
     question: "¿Con cual de estos personajes te puedes casar?",
     choices: ["Sandy", "Penny", "Linus"],
-    answer: "Verano",
+    answer: "Penny",
   },
 
   {
@@ -42,8 +42,8 @@ export const data = [
 
   {
     question: "¿Cuanto tarda la semilla rara en crecer?",
-    choices: ["20 dias", "Una estación", "25 días"],
-    answer: "Una estación",
+    choices: ["20 dias", "Una estacion", "25 días"],
+    answer: "Una estacion",
   },
 
   {
@@ -87,7 +87,7 @@ export const data = [
     choices: [
       "Su tía", "Su madre", "Su abuela"],
     answer:
-      "Su abuela",
+      "Su tía",
   },
 
   {

@@ -4,7 +4,7 @@ export function Temp(quiz, ui) {
   var timeLeft = 30;
 
   var elem = document.getElementById("temporizador");
-  elem.innerHTML = "Go!";
+  elem.innerHTML = "Go!"; 
 
   var timerId = setInterval(countdown, 1000);
 

@@ -37,7 +37,7 @@ export class Quiz {
       var points = document.getElementById("temporizador").title;
 
       if (document.getElementById("temporizador").textContent == "Go!") {
-        this.score += 0;
+        this.score += 30;
       } else {
         this.score += parseInt(points);
       }
