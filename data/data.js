@@ -120,9 +120,9 @@ export const data = [
 
   {
     question:
-      "¿Cual es el maximo de puntos obtenibles en la evaluación del abuelo?",
-    choices: ["100", "15", "21"],
-    answer: "21",
+      "¿Cuantas velas hay en el altar del abuelo?",
+    choices: ["4", "2", "5"],
+    answer: "4",
   },
 
   {
