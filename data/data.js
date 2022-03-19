@@ -28,7 +28,7 @@ export const data = [
       "¿Por que decide tu personaje irse a vivir a la granja de su abuelo?",
     choices: [
       "Todas son correctas",
-      "Lo hechan del trabajo",
+      "Deja su trabajo",
       "Quiere una vida más tranquila",
     ],
     answer: "Todas son correctas",

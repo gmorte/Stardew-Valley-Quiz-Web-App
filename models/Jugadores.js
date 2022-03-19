@@ -30,6 +30,11 @@ function showRankings() {
     return 0;
   });
 
+  const rankingTitle = document.createElement("h1");
+  rankingTitle.id = "rankingTitle";
+  rankingTitle.innerHTML = "!RANKING!"
+  element.append(rankingTitle);
+
   const alltable = document.createElement("table");
   alltable.id = "table";
   element.append(alltable);

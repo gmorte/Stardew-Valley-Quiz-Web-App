@@ -30,17 +30,6 @@ body {
   margin: 0 auto;
 }
 
-#infoFinal {
-  color: plum;
-  text-shadow: purple 2px 2px;
-  font-size: 3rem;
-  text-align: center;
-  padding: 2px 0;
-  font-family: "Stardew-Valley";
-  margin: 0 auto;
-  margin-bottom: 50px;
-}
-
 #question {
   font-size: 2rem;
   color: #572300;
@@ -122,4 +111,12 @@ input {
   margin: 0 auto;
   color: plum;
   text-shadow: purple 3px 3px;
+}
+
+#rankingTitle{
+  font-family: "Stardew-Valley";
+  font-size: 80px;
+  color: plum;
+  text-shadow: purple 3px 3px;
+  margin: 0 auto;
 }
