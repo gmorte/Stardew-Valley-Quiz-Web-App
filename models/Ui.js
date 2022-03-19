@@ -47,7 +47,7 @@ export class UI {
     input.type = "text";
     input.id = "formNombre";
     input.className = "button";
-    input.maxLength = "12";
+    input.maxLength = "10";
     input.placeholder = "Tu nombre:";
 
     const addButton = document.createElement("button");

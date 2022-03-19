@@ -56,6 +56,8 @@ function showRankings() {
 
   element.append(volverButton);
 
+  var ranking = 1;
+
   for (let index = 0; index < 10; index++) {
     var row = "a" + index;
     row = document.createElement("tr");
@@ -64,18 +66,20 @@ function showRankings() {
     var nombre = "b" + index;
     nombre = document.createElement("th");
     
-    if (jugadores.length == 0) { //IF JUGADORES is NULL
+    if (jugadores.length == 0) { 
       nombre.innerHTML = "?";
       row.append(nombre);
     } else {
-      nombre.innerHTML = jugadores[index].nombre.toString();
+      nombre.style.textAlign = "left";
+      nombre.innerHTML = ranking + "-" + jugadores[index].nombre.toString();
+      ranking++;
       row.append(nombre);
     }
 
     var puntos = "c" + index;
     puntos = document.createElement("th");
 
-    if (jugadores.length == 0) { //IF JUGADORES is NULL
+    if (jugadores.length == 0) { 
       puntos.innerHTML = "?";
       row.append(puntos);
     }

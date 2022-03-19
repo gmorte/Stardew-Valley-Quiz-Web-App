@@ -152,6 +152,27 @@ export const data = [
     choices: ["Espada galaxia", "Espada infinita", "Katana de lava"],
     answer: "Espada infinita",
   },
+
+  {
+    question:
+      "¿Quien es el esposo/a de Robin?",
+    choices: ["Sam", "Demetrius", "Sebastian"],
+    answer: "Demetrius",
+  },
+
+  {
+    question:
+      "¿Linus vive en...?",
+    choices: ["Una tienda de acampar", "Una furgoneta", "Un arbol"],
+    answer: "Una tienda de acampar",
+  },
+
+  {
+    question:
+      "¿Cuanto dura un dia en Stardew Valley?",
+    choices: ["De 6am a las 2am", "De 7am a las 11pm", "De 8am a la 1am"],
+    answer: "De 6am a las 2am",
+  }
   
 ];
 
