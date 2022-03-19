@@ -3,7 +3,7 @@ import { startQuiz } from "../app.js";
 import { fisherYatesShuffle } from "../data/data.js";
 
 export class UI {
-  constructor() { }
+  constructor() {}
 
   /**
    *
@@ -73,7 +73,7 @@ export class UI {
     const totalPuntos = document.createElement("h1");
     totalPuntos.id = "totalPuntos";
     totalPuntos.className = "estiloPuntos";
-    totalPuntos.innerHTML = `Puntos: `;
+    totalPuntos.innerHTML = `PUNTOS: `;
 
     const Puntos = document.createElement("h1");
     Puntos.id = "Puntos";
@@ -81,7 +81,7 @@ export class UI {
     Puntos.innerHTML = `${score}`;
 
     const infoFinal = document.createElement("h2");
-    infoFinal.id = "infoFinal";
+    infoFinal.className = "estiloPuntos";
     if (score < 50) {
       infoFinal.innerHTML = "¡UUUUUH!";
     } else if (score > 50 && score < 100) {
@@ -89,9 +89,9 @@ export class UI {
     } else if (score > 100 && score < 200) {
       infoFinal.innerHTML = "!PERFECTO!";
     } else if (score > 200 && score < 290) {
-      infoFinal.innerHTML = "¡NIVEL EXPERTO!";
+      infoFinal.innerHTML = "¡EXPERTO!";
     } else if (score > 290) {
-      infoFinal.innerHTML = "¡MASTER!"
+      infoFinal.innerHTML = "¡MASTER!";
     }
 
     const element = document.getElementById("quiz");
