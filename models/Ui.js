@@ -29,7 +29,7 @@ export class UI {
       button.innerText = choices[i];
       button.className = "button";
       button.id = "btn" + i;
-      button.addEventListener("click", () => callback(choices[i]));
+      button.addEventListener("click", () => callback(choices[i])); //Devolver 2 callbacks?
 
       choicesContainer.append(button);
     }

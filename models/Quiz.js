@@ -28,7 +28,7 @@ export class Quiz {
    *
    * @param {string} answer some text
    */
-  guess(answer) {
+  guess(answer) { //passar id del segundo callback
     if (this.getQuestionIndex().correctAnswer(answer)) {
       var points = document.getElementById("temporizador").title;
 

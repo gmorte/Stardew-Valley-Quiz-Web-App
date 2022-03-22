@@ -17,7 +17,7 @@ export function renderPage(quiz, ui) {
     Temp(quiz, ui);
     document.getElementById("temporizador").style.display = "contents";
     ui.showQuestion(quiz.getQuestionIndex().text);
-    ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => {
+    ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => { //pasar dos callbacks?
       quiz.guess(currentChoice);
         renderPage(quiz, ui);
     });
