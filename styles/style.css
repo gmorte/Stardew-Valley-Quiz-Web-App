@@ -48,14 +48,14 @@ body {
   border-radius: 0.3rem;
   padding: 10px 20px;
   margin: 10px 40px 10px;
-  /*transition: 0.5s;*/
+  transition: 0.5s;
 }
 
-/*.button:hover {
+.button:hover {
   cursor: pointer;
   background-color: #419D78;
   transition: 1s;
-}*/
+}
 
 #progress {
   font-size: 30px;
