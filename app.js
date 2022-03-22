@@ -35,7 +35,7 @@ export function startQuiz() {
   renderPage(quiz, ui);
 }
 
-export function main() {
+function main() {
   getJugadores();
   ui.showHome();
 }
