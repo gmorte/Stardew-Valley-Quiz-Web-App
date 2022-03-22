@@ -22,14 +22,14 @@ export class UI {
     const choicesContainer = document.getElementById("choices");
     choicesContainer.innerHTML = "";
 
-     fisherYatesShuffle(choices);  //Posar-ho al inici? //Desactivat temporalment
+     fisherYatesShuffle(choices);  
 
     for (let i = 0; i < choices.length; i++) {
       const button = document.createElement("button");
       button.innerText = choices[i];
       button.className = "button";
       button.id = "btn" + i;
-      button.addEventListener("click", () => callback(choices[i])); //Devolver 2 callbacks?
+      button.addEventListener("click", () => callback(choices[i])); 
 
       choicesContainer.append(button);
     }
@@ -115,6 +115,9 @@ export class UI {
   }
 
   showHome() {
+
+    document.getElementById("quiz").innerHTML = "";
+
     const addLogo = document.createElement("img");
     addLogo.src = "img/58f367aca4fa116215a923ef.png";
     addLogo.id = "logo-stardew";
