@@ -23,7 +23,7 @@ export function renderPage(quiz, ui) {
       quiz.guess(currentChoice);
       setTimeout(function () {
         renderPage(quiz, ui);
-      }, 400);
+      }, 1000);
     });
     ui.showProgress(quiz.questionIndex + 1, quiz.questions.length); 
   }
