@@ -4,7 +4,7 @@ export function Temp(quiz, ui) {
   var timeLeft = 30;
 
   var elem = document.getElementById("temporizador");
-  elem.innerHTML = "Go!"; 
+  elem.innerHTML = "Go!";
 
   var timerId = setInterval(countdown, 1000);
 
@@ -17,7 +17,6 @@ export function Temp(quiz, ui) {
       clearTimeout(timerId);
       elem.style.color = "plum";
       elem.innerHTML = 30;
-
       quiz.questionIndex++;
       renderPage(quiz, ui);
     } else {
@@ -30,5 +29,3 @@ export function Temp(quiz, ui) {
     }
   }
 }
-
-

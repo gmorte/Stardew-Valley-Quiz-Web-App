@@ -22,7 +22,7 @@ export class UI {
     const choicesContainer = document.getElementById("choices");
     choicesContainer.innerHTML = "";
 
-    fisherYatesShuffle(choices);
+     fisherYatesShuffle(choices);  //Posar-ho al inici? //Desactivat temporalment
 
     for (let i = 0; i < choices.length; i++) {
       const button = document.createElement("button");

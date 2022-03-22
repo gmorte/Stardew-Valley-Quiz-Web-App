@@ -5,6 +5,8 @@ import { Quiz } from "./models/Quiz.js";
 import { Temp } from "./models/Temporizador.js";
 import { UI } from "./models/Ui.js";
 
+export const ui = new UI();
+
 /**
  *
  * @param {Quiz} quiz the main quiz object
@@ -17,24 +19,24 @@ export function renderPage(quiz, ui) {
     Temp(quiz, ui);
     document.getElementById("temporizador").style.display = "contents";
     ui.showQuestion(quiz.getQuestionIndex().text);
-    ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => { //pasar dos callbacks?
+    ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => {
       quiz.guess(currentChoice);
+      setTimeout(function () {
         renderPage(quiz, ui);
+      }, 400);
     });
-    ui.showProgress(quiz.questionIndex + 1, quiz.questions.length); //MAX 10 EN LUGAR DE LENGTH
+    ui.showProgress(quiz.questionIndex + 1, quiz.questions.length); 
   }
 }
 
 export function startQuiz() {
-  const quiz = new Quiz(questions); //if level == easy { const quiz = new Quiz (easyQuestions)} else if level == normal {... new Quiz (normalQuestions)} else {(hardQuestions)}
-  const ui = new UI();
+  const quiz = new Quiz(questions); 
   ui.showQuiz();
   renderPage(quiz, ui);
 }
 
 export function main() {
   getJugadores();
-  const ui = new UI();
   ui.showHome();
 }
 
