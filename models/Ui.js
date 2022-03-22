@@ -22,14 +22,14 @@ export class UI {
     const choicesContainer = document.getElementById("choices");
     choicesContainer.innerHTML = "";
 
-    fisherYatesShuffle(choices);
+     fisherYatesShuffle(choices);  //Posar-ho al inici? //Desactivat temporalment
 
     for (let i = 0; i < choices.length; i++) {
       const button = document.createElement("button");
       button.innerText = choices[i];
       button.className = "button";
       button.id = "btn" + i;
-      button.addEventListener("click", () => callback(choices[i]));
+      button.addEventListener("click", () => callback(choices[i])); //Devolver 2 callbacks?
 
       choicesContainer.append(button);
     }
