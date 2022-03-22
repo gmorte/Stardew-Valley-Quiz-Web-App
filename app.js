@@ -19,9 +19,7 @@ export function renderPage(quiz, ui) {
     ui.showQuestion(quiz.getQuestionIndex().text);
     ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => {
       quiz.guess(currentChoice);
-      setTimeout(function () {
         renderPage(quiz, ui);
-      }, 1000);
     });
     ui.showProgress(quiz.questionIndex + 1, quiz.questions.length); //MAX 10 EN LUGAR DE LENGTH
   }

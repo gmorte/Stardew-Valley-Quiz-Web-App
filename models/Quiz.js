@@ -38,18 +38,7 @@ export class Quiz {
         this.score += parseInt(points);
       }
     }
-
-    var check = this.getQuestionIndex().correctAnswer(answer);
-
-    window.document.addEventListener("click", function (e) {
-      const idClickeado = e.target.id;
-      if (check) {
-        document.getElementById(idClickeado).style.background = "green";
-      } else {
-        document.getElementById(idClickeado).style.background = "red";
-      }
-    });
-
+    
     this.questionIndex++;
   }
 }
