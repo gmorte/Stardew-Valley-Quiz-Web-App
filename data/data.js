@@ -29,7 +29,7 @@ export const data = [
     choices: [
       "Todas son correctas",
       "Deja su trabajo",
-      "Quiere una vida más tranquila",
+      "Quiere una vida mas tranquila",
     ],
     answer: "Todas son correctas",
   },

@@ -116,8 +116,6 @@ export class UI {
 
   showHome() {
 
-    document.getElementById("quiz").innerHTML = "";
-
     const addLogo = document.createElement("img");
     addLogo.src = "img/58f367aca4fa116215a923ef.png";
     addLogo.id = "logo-stardew";
