@@ -1,4 +1,3 @@
-// @ts-check
 import { Question } from "./Question.js";
 
 export class Quiz {
@@ -30,10 +29,7 @@ export class Quiz {
    * @param {string} answer some text
    */
   guess(answer) {
-    console.log(answer);
-
     if (this.getQuestionIndex().correctAnswer(answer)) {
-
       var points = document.getElementById("temporizador").title;
 
       if (document.getElementById("temporizador").textContent == "Go!") {
@@ -43,6 +39,17 @@ export class Quiz {
       }
     }
 
-     this.questionIndex++;
+    var check = this.getQuestionIndex().correctAnswer(answer);
+
+    window.document.addEventListener("click", function (e) {
+      const idClickeado = e.target.id;
+      if (check) {
+        document.getElementById(idClickeado).style.background = "green";
+      } else {
+        document.getElementById(idClickeado).style.background = "red";
+      }
+    });
+
+    this.questionIndex++;
   }
 }

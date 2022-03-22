@@ -19,13 +19,15 @@ export function renderPage(quiz, ui) {
     ui.showQuestion(quiz.getQuestionIndex().text);
     ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => {
       quiz.guess(currentChoice);
-      renderPage(quiz, ui);
+      setTimeout(function () {
+        renderPage(quiz, ui);
+      }, 1000);
     });
     ui.showProgress(quiz.questionIndex + 1, quiz.questions.length); //MAX 10 EN LUGAR DE LENGTH
   }
 }
 
-export function startQuiz() {                              
+export function startQuiz() {
   const quiz = new Quiz(questions); //if level == easy { const quiz = new Quiz (easyQuestions)} else if level == normal {... new Quiz (normalQuestions)} else {(hardQuestions)}
   const ui = new UI();
   ui.showQuiz();
@@ -39,5 +41,3 @@ export function main() {
 }
 
 main();
-
-
