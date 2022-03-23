@@ -53,7 +53,7 @@ body {
 
 .button:hover {
   cursor: pointer;
-  background-color: green;
+  background-color: #FFD921;
   transition: 1s;
 }
 
@@ -113,7 +113,7 @@ input {
   text-shadow: purple 3px 3px;
 }
 
-#rankingTitle{
+#rankingTitle {
   font-family: "Stardew-Valley";
   font-size: 80px;
   color: plum;
