@@ -27,12 +27,12 @@ export class Quiz {
 
   /**
    *
-   * @param {string} answer some text
+   * @param {string} choice some text
    */
-  guess(answer) {
-    var pos = this.getQuestionIndex().choices.indexOf(answer);
+  guess(choice) {
+    var pos = this.getQuestionIndex().choices.indexOf(choice);
 
-    if (this.getQuestionIndex().correctAnswer(answer)) {
+    if (this.getQuestionIndex().correctAnswer(choice)) {
       var points = document.getElementById("temporizador").title;
 
       if (document.getElementById("temporizador").textContent == "Go!") {
@@ -42,9 +42,17 @@ export class Quiz {
       }
     
       document.querySelectorAll("button")[pos].style.background = "green";
-      
+
     } else {
       document.querySelectorAll("button")[pos].style.background = "red";
+
+      for (let index = 0; index < this.getQuestionIndex().choices.length; index++) {
+        if(this.getQuestionIndex().correctAnswer(this.getQuestionIndex().choices[index])){
+        var posOk = index;
+        }
+      }
+
+      document.querySelectorAll("button")[posOk].style.background = "green";
     }
 
     this.questionIndex++;
