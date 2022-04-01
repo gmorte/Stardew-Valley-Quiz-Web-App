@@ -15,11 +15,22 @@ export function Temp(quiz, ui) {
     if (check != quiz.getQuestionIndex()) {
       timeLeft = 30;
     } else if (timeLeft == -1) {
+
+      for (let index = 0; index < quiz.getQuestionIndex().choices.length; index++) {
+        if(quiz.getQuestionIndex().correctAnswer(quiz.getQuestionIndex().choices[index])){
+        var posOk = index;
+        }
+      }
+      document.querySelectorAll("button")[posOk].style.background = "green";
+
       clearTimeout(timerId);
+      
+      setTimeout(function(){
       elem.style.color = "plum";
       elem.innerHTML = 30;
       quiz.questionIndex++;
-      renderPage(quiz, ui);
+      renderPage(quiz, ui);},1000);
+
     } else {
       elem.innerHTML = timeLeft;
       elem.title = timeLeft;

@@ -48,11 +48,12 @@ export class Quiz {
 
       for (let index = 0; index < this.getQuestionIndex().choices.length; index++) {
         if(this.getQuestionIndex().correctAnswer(this.getQuestionIndex().choices[index])){
-        var posOk = index;
+        var posCorrectAnswer = index;
         }
       }
 
-      document.querySelectorAll("button")[posOk].style.background = "green";
+      document.querySelectorAll("button")[posCorrectAnswer].style.background = "green";
+      
     }
 
     this.questionIndex++;
