@@ -14,9 +14,3 @@
 
 ## Tecnologías usadas:
 * HTML, CSS y JS
-
-## Info:
-* Reto número 3 del Monthly Challenge 2022 de Mouredev
-* Puedes encontrar más información sobre el reto [aquí](https://github.com/mouredev/Monthly-App-Challenge-2022)
-
-<a href="https://youtu.be/14v4IINunvY"><img src="http://i3.ytimg.com/vi/14v4IINunvY/maxresdefault.jpg" style="height: 50%; width:50%;"/></a>
