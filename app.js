@@ -17,6 +17,7 @@ export function renderPage(quiz, ui) {
     ui.showScores(quiz.score);
   } else {
     Temp(quiz, ui);
+    // @ts-ignore
     document.getElementById("temporizador").style.display = "contents";
     ui.showQuestion(quiz.getQuestionIndex().text);
     ui.showChoices(quiz.getQuestionIndex().choices, (currentChoice) => {
