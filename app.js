@@ -1,6 +1,6 @@
 // @ts-check
 import { questions } from "./data/questions.js";
-import { getJugadores } from "./models/Jugadores.js";
+import { getJugadoresFromLocalStorage } from "./models/Jugadores.js";
 import { Quiz } from "./models/Quiz.js";
 import { Temp } from "./models/Temporizador.js";
 import { UI } from "./models/Ui.js";
@@ -37,7 +37,7 @@ export function startQuiz() {
 }
 
 function main() {
-  getJugadores();
+  getJugadoresFromLocalStorage();
   ui.showHome();
 }
 

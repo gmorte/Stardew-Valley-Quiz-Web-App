@@ -1,18 +1,23 @@
-export { getJugadores, addPlayer, showRankings };
+export { getJugadoresFromLocalStorage, addPlayer, showRankings };
 
-let jugadores = [];
+//let jugadores = [];
 
 function addPlayer(nombre, puntos) {
+
+  let jugadores = [];
+  jugadores = getJugadoresFromLocalStorage();
+
   let element = { nombre: nombre, puntos: puntos };
 
   jugadores.push(element);
 
-  localStorageJugadores(jugadores);
+  saveLocalStorageJugadores(jugadores);
 }
 
 function showRankings() {
-  const element = document.getElementById("quiz");
-  element.innerHTML = "";
+
+  let jugadores = [];
+  jugadores = getJugadoresFromLocalStorage();
 
   jugadores.sort((a, b) => {
     if (a.puntos < b.puntos) {
@@ -29,6 +34,14 @@ function showRankings() {
     }
     return 0;
   });
+
+  const MAXRANKING = 10;
+  if(jugadores.length > MAXRANKING){
+    jugadores = jugadores.slice(0,10);
+  }
+
+  const element = document.getElementById("quiz");
+  element.innerHTML = "";
 
   const rankingTitle = document.createElement("h1");
   rankingTitle.id = "rankingTitle";
@@ -63,7 +76,7 @@ function showRankings() {
 
   var ranking = 1;
 
-  for (let index = 0; index < 10; index++) {
+  for (let index = 0; index < jugadores.length; index++) {
     var row = "a" + index;
     row = document.createElement("tr");
     alltable.append(row);
@@ -99,16 +112,17 @@ function showRankings() {
 
 }
 
-function getJugadores() {
+function getJugadoresFromLocalStorage() {
+  let getJugadores = []
   var storedList = localStorage.getItem("localJugadores");
   if (storedList == null) {
     storedList = [];
   } else {
-    jugadores = JSON.parse(storedList);
+    getJugadores = JSON.parse(storedList);
   }
-  return jugadores;
+  return getJugadores;
 }
 
-function localStorageJugadores(array) {
+function saveLocalStorageJugadores(array) {
   localStorage.setItem("localJugadores", JSON.stringify(array));
 }
