@@ -1,3 +1,5 @@
+import { showRankings } from "./RankingUi.js";
+
 export class HomeUi {
     constructor() {}
 

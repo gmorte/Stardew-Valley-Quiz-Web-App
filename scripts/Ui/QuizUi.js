@@ -1,6 +1,7 @@
 import { fisherYatesShuffle } from "../Utils.js";
 
 export class QuizUi {
+
     constructor(question) {
         this.question = question.question;
         this.choices = question.choices;
@@ -38,8 +39,6 @@ export class QuizUi {
         });
         element.append(choi);
     }
-
-    // showTimer() {}
 
     // showProgress() {
     //     const progress = document.getElementById("progress");
