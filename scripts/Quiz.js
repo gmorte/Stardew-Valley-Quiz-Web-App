@@ -1,5 +1,5 @@
 import { data } from "../../data/data.js";
-import { fisherYatesShuffle } from "../Utils.js";
+import { fisherYatesShuffle } from "./Utils.js";
 
 export class Quiz {
     questionsIndex = 0;
