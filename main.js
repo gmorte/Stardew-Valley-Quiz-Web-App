@@ -19,14 +19,18 @@ function renderQuiz() {
         });
 
         const newQuizUi = new QuizUi(newQuiz.getQuestion());
-        newQuizUi.showQuiz((chosenAnswer) => {
-            newQuiz.correctAnswer(chosenAnswer);
-            newTimer.clearTimer();
-            setTimeout(() => {
-                newQuiz.setQuestionsIndex();
-                renderQuiz();
-            }, 3000);
-        });
+        newQuizUi.showQuiz(
+            (chosenAnswer) => {
+                newQuiz.correctAnswer(chosenAnswer);
+                newTimer.clearTimer();
+                setTimeout(() => {
+                    newQuiz.setQuestionsIndex();
+                    renderQuiz();
+                }, 3000);
+            },
+            newQuiz.getQuestionsIndex(),
+            newQuiz.getQuestionsLength()
+        );
     }
 }
 

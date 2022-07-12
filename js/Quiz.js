@@ -16,6 +16,10 @@ export class Quiz {
         return this.questionsIndex;
     }
 
+    getQuestionsLength(){
+        return this.questions.length;
+    }
+
     setQuestionsIndex() {
         this.questionsIndex++;
     }

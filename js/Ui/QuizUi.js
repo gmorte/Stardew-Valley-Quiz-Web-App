@@ -8,7 +8,7 @@ export class QuizUi {
         this.answer = question.answer;
     }
 
-    showQuiz(checkAnswerAndNextQuestion) {
+    showQuiz(checkAnswerAndNextQuestion, questionIndex, questionsLength) {
         const element = document.getElementById("app");
         element.innerHTML = "";
 
@@ -24,6 +24,7 @@ export class QuizUi {
 
         const prog = document.createElement("p");
         prog.id = "progress";
+        prog.innerHTML = `${questionIndex + 1} de ${questionsLength}`;
         element.append(prog);
 
         const choi = document.createElement("div");
