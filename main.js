@@ -1,8 +1,8 @@
-import { Timer } from "./scripts/Timer.js";
-import { Quiz } from "./scripts/Quiz.js";
-import { HomeUi } from "./scripts/Ui/HomeUi.js";
-import { QuizUi } from "./scripts/Ui/QuizUi.js";
-import { showRankings } from "./scripts/Ui/RankingUi.js";
+import { Timer } from "./js/Timer.js";
+import { Quiz } from "./js/Quiz.js";
+import { HomeUi } from "./js/Ui/HomeUi.js";
+import { QuizUi } from "./js/Ui/QuizUi.js";
+import { showRankings } from "./js/Ui/RankingUi.js";
 
 const newHomeUi = new HomeUi();
 const newQuiz = new Quiz();
