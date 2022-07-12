@@ -1,6 +1,6 @@
 export class Score {
     constructor() {
-        this.score;
+        this.score = 0;
     }
 
     setScore(points) {

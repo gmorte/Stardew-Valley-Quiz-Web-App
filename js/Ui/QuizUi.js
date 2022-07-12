@@ -8,10 +8,10 @@ export class QuizUi {
     }
 
     showQuiz(
-        checkAnswerAndNextQuestion,
-        questionIndex,
+        updateScore,
+        updateQuestionIndex,
         questionsLength,
-        seconds
+        checkAnswerAndNextQuestion
     ) {
         const element = document.getElementById("app");
         element.innerHTML = "";
@@ -23,8 +23,7 @@ export class QuizUi {
 
         const points = document.createElement("p");
         points.id = "points";
-        points.innerHTML = "Score: 0";
-       // points.innerHTML = `Score: ${seconds}`;
+        points.innerHTML = `Score: ${updateScore}`;
         element.append(points);
 
         const quest = document.createElement("h2");
@@ -34,7 +33,7 @@ export class QuizUi {
 
         const prog = document.createElement("p");
         prog.id = "progress";
-        prog.innerHTML = `${questionIndex + 1} de ${questionsLength}`;
+        prog.innerHTML = `${updateQuestionIndex + 1} de ${questionsLength}`;
         element.append(prog);
 
         const choi = document.createElement("div");

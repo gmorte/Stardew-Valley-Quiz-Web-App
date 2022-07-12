@@ -22,17 +22,21 @@ function renderQuiz() {
 
         const newQuizUi = new QuizUi(newQuiz.getQuestion());
         newQuizUi.showQuiz(
+            newScore.getScore(),
+            newQuiz.getQuestionsIndex(),
+            newQuiz.getQuestionsLength(),
             (chosenAnswer) => {
                 newQuiz.correctAnswer(chosenAnswer);
                 newTimer.clearTimer();
                 newScore.setScore(newTimer.getSeconds());
+                document.querySelector(
+                    "#points"
+                ).innerHTML = `Score: ${newScore.getScore()}`;
                 setTimeout(() => {
                     newQuiz.setQuestionsIndex();
                     renderQuiz();
-                }, 3000);
-            },
-            newQuiz.getQuestionsIndex(),
-            newQuiz.getQuestionsLength()
+                }, 1000);
+            }
         );
     }
 }
