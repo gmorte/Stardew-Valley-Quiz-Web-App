@@ -3,9 +3,11 @@ import { Quiz } from "./js/Quiz.js";
 import { HomeUi } from "./js/Ui/HomeUi.js";
 import { QuizUi } from "./js/Ui/QuizUi.js";
 import { showRankings } from "./js/Ui/RankingUi.js";
+import { Score } from "./js/Score.js";
 
 const newHomeUi = new HomeUi();
 const newQuiz = new Quiz();
+const newScore = new Score();
 const TIME_LIMIT = 3;
 
 function renderQuiz() {
@@ -23,6 +25,7 @@ function renderQuiz() {
             (chosenAnswer) => {
                 newQuiz.correctAnswer(chosenAnswer);
                 newTimer.clearTimer();
+                newScore.setScore(newTimer.getSeconds());
                 setTimeout(() => {
                     newQuiz.setQuestionsIndex();
                     renderQuiz();

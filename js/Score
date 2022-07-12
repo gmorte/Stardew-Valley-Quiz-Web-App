@@ -1,0 +1,13 @@
+export class Score {
+    constructor() {
+        this.score;
+    }
+
+    setScore(points) {
+        this.score += points;
+    }
+
+    getScore() {
+        return this.score;
+    }
+}

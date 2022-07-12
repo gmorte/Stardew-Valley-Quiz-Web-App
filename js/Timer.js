@@ -1,5 +1,4 @@
 export class Timer {
-
     constructor(seconds) {
         this.seconds = seconds;
         this.idTimer;
@@ -11,6 +10,7 @@ export class Timer {
         this.idTimer = setInterval(() => {
             let timer = document.querySelector("#temporizador");
             timer.innerHTML = sec;
+            this.seconds = sec;
             sec--;
             if (sec == TIME_DELAY) {
                 clearInterval(this.idTimer);
@@ -23,4 +23,7 @@ export class Timer {
         clearInterval(this.idTimer);
     }
 
+    getSeconds(){
+        return this.seconds;
+    }
 }

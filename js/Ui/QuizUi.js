@@ -1,14 +1,18 @@
 import { fisherYatesShuffle } from "../Utils.js";
 
 export class QuizUi {
-
     constructor(question) {
         this.question = question.question;
         this.choices = question.choices;
         this.answer = question.answer;
     }
 
-    showQuiz(checkAnswerAndNextQuestion, questionIndex, questionsLength) {
+    showQuiz(
+        checkAnswerAndNextQuestion,
+        questionIndex,
+        questionsLength,
+        seconds
+    ) {
         const element = document.getElementById("app");
         element.innerHTML = "";
 
@@ -16,6 +20,12 @@ export class QuizUi {
         tem.id = "temporizador";
         tem.innerHTML = "Go!";
         element.append(tem);
+
+        const points = document.createElement("p");
+        points.id = "points";
+        points.innerHTML = "Score: 0";
+       // points.innerHTML = `Score: ${seconds}`;
+        element.append(points);
 
         const quest = document.createElement("h2");
         quest.id = "question";
@@ -35,14 +45,11 @@ export class QuizUi {
             const button = document.createElement("button");
             button.innerText = choices;
             button.className = "button";
-            button.addEventListener("click", () => checkAnswerAndNextQuestion(choices));
+            button.addEventListener("click", () =>
+                checkAnswerAndNextQuestion(choices)
+            );
             choi.appendChild(button);
         });
         element.append(choi);
     }
-
-    // showProgress() {
-    //     const progress = document.getElementById("progress");
-    //     progress.innerHTML = `${questionsIndex + 1} de ${questions.length}`;
-    // }
 }
