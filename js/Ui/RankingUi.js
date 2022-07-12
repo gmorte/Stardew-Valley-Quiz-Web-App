@@ -1,6 +1,6 @@
 import { addNewScoreToRanking } from "../Players.js";
 
-export function showRankings() {
+export function showRankings(main) {
     let jugadores = [];
     //jugadores = getJugadoresFromLocalStorage();
     //sortJugadoresArray(jugadores);
@@ -46,14 +46,9 @@ export function showRankings() {
     const inicioButton = document.createElement("button");
     inicioButton.className = "button";
     inicioButton.innerHTML = "Inicio";
-    inicioButton.type = "submit";
-    inicioButton.id = "btnVolver";
-    inicioButton.onclick = function () {
-        showHome();
-    };
+    inicioButton.onclick = main;
 
     element.append(table);
 
     element.append(inicioButton);
 }
-

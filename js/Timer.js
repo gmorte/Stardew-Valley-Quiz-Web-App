@@ -5,7 +5,7 @@ export class Timer {
         this.idTimer;
     }
 
-    setTimer(callback) {
+    setTimer(nextQuestion) {
         const TIME_DELAY = -2;
         let sec = this.seconds;
         this.idTimer = setInterval(() => {
@@ -14,7 +14,7 @@ export class Timer {
             sec--;
             if (sec == TIME_DELAY) {
                 clearInterval(this.idTimer);
-                callback();
+                nextQuestion();
             }
         }, 1000);
     }

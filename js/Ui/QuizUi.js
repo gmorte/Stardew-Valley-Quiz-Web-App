@@ -8,7 +8,7 @@ export class QuizUi {
         this.answer = question.answer;
     }
 
-    showQuiz(callback) {
+    showQuiz(checkAnswerAndNextQuestion) {
         const element = document.getElementById("app");
         element.innerHTML = "";
 
@@ -34,7 +34,7 @@ export class QuizUi {
             const button = document.createElement("button");
             button.innerText = choices;
             button.className = "button";
-            button.addEventListener("click", () => callback(choices));
+            button.addEventListener("click", () => checkAnswerAndNextQuestion(choices));
             choi.appendChild(button);
         });
         element.append(choi);
