@@ -42,6 +42,12 @@ function renderQuiz() {
                     buttonId.style.backgroundColor = "green";
                 } else {
                     buttonId.style.backgroundColor = "red";
+                    //Leave this implementation if i want to show the correct answer to the user.
+                    choicesButtonsArray.forEach(element => {
+                        if(element.textContent == newQuiz.getQuestion().answer){
+                            element.style.backgroundColor = "green";
+                        }
+                    });
                 }
                 newTimer.clearTimer();
                 document.querySelector(
