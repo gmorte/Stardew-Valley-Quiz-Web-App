@@ -95,3 +95,13 @@ td {
   font-family: "Stardew-Valley";
   color: #572300;
 }
+
+.estiloPuntos {
+  color: plum;
+  text-shadow: purple 3px 3px;
+  font-size: 4rem;
+  text-align: center;
+  padding: 2px 0;
+  font-family: "Stardew-Valley";
+  margin: 0 auto;
+}

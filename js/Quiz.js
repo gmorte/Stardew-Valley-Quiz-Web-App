@@ -16,7 +16,7 @@ export class Quiz {
         return this.questionsIndex;
     }
 
-    getQuestionsLength(){
+    getQuestionsLength() {
         return this.questions.length;
     }
 
@@ -25,7 +25,6 @@ export class Quiz {
     }
 
     correctAnswer(response) {
-        console.log(this.getQuestion().answer == response);
         return this.getQuestion().answer == response;
     }
 

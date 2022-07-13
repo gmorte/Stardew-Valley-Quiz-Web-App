@@ -4,15 +4,21 @@ import { HomeUi } from "./js/Ui/HomeUi.js";
 import { QuizUi } from "./js/Ui/QuizUi.js";
 import { showRankings } from "./js/Ui/RankingUi.js";
 import { Score } from "./js/Score.js";
+import { formScore } from "./js/Ui/ScoreUi.js";
 
 const newHomeUi = new HomeUi();
-const newQuiz = new Quiz();
-const newScore = new Score();
-const TIME_LIMIT = 3;
+let newQuiz = new Quiz();
+let newScore = new Score();
+const TIME_LIMIT = 1;
+
+function resetGame(){
+    newQuiz = new Quiz();
+    newScore = new Score();
+}
 
 function renderQuiz() {
     if (newQuiz.quizEnd()) {
-        showRankings(main);
+        formScore(newScore.getScore(), () => showRankings(main), main);
     } else {
         const newTimer = new Timer(TIME_LIMIT);
         newTimer.setTimer(() => {
@@ -26,9 +32,10 @@ function renderQuiz() {
             newQuiz.getQuestionsIndex(),
             newQuiz.getQuestionsLength(),
             (chosenAnswer) => {
-                newQuiz.correctAnswer(chosenAnswer);
+                if (newQuiz.correctAnswer(chosenAnswer)) {
+                    newScore.setScore(newTimer.getSeconds());
+                }
                 newTimer.clearTimer();
-                newScore.setScore(newTimer.getSeconds());
                 document.querySelector(
                     "#points"
                 ).innerHTML = `Score: ${newScore.getScore()}`;
@@ -43,6 +50,7 @@ function renderQuiz() {
 
 function main() {
     newHomeUi.showHome(renderQuiz, () => showRankings(main));
+    resetGame();
 }
 
 main();

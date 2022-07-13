@@ -26,6 +26,7 @@ function saveLocalStorageJugadores(array) {
     localStorage.setItem("localJugadores", JSON.stringify(array));
 }
 
+//PASAR A RANKINGUI.JS?
 function addNewScoreToRanking(nombre, puntos) {
     const newScoreRow = document.createElement("tr");
     newScoreRow.className = "scoreRow";

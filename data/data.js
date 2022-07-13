@@ -1,3 +1,5 @@
+//Renombrar data a gameQuestions?
+
 export const data = [
   {
     question: "Cuantos niveles tienen las minas?",
