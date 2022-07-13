@@ -11,7 +11,7 @@ let newQuiz = new Quiz();
 let newScore = new Score();
 const TIME_LIMIT = 30;
 
-function resetGame(){
+function resetGame() {
     newQuiz = new Quiz();
     newScore = new Score();
 }

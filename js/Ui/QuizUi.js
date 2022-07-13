@@ -8,9 +8,9 @@ export class QuizUi {
     }
 
     showQuiz(
-        updateScore,
-        updateQuestionIndex,
-        questionsLength,
+        getScore,
+        getQuestionIndex,
+        getQuestionsLength,
         checkAnswerAndNextQuestion
     ) {
         const element = document.getElementById("app");
@@ -23,7 +23,7 @@ export class QuizUi {
 
         const points = document.createElement("p");
         points.id = "points";
-        points.innerHTML = `Score: ${updateScore}`;
+        points.innerHTML = `Score: ${getScore}`;
         element.append(points);
 
         const quest = document.createElement("h2");
@@ -33,19 +33,19 @@ export class QuizUi {
 
         const prog = document.createElement("p");
         prog.id = "progress";
-        prog.innerHTML = `${updateQuestionIndex + 1} de ${questionsLength}`;
+        prog.innerHTML = `${getQuestionIndex + 1} de ${getQuestionsLength}`;
         element.append(prog);
 
         const choi = document.createElement("div");
         choi.id = "choices";
 
         let choices = fisherYatesShuffle(this.choices);
-        choices.forEach((choices) => {
+        choices.forEach((choice) => {
             const button = document.createElement("button");
-            button.innerText = choices;
+            button.innerText = choice;
             button.className = "button";
             button.addEventListener("click", () =>
-                checkAnswerAndNextQuestion(choices)
+                checkAnswerAndNextQuestion(choice)
             );
             choi.appendChild(button);
         });

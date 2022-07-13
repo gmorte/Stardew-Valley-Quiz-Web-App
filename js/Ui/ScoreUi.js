@@ -12,7 +12,6 @@ export function formScore(score, showRank, main) {
     Puntos.className = "estiloPuntos";
     Puntos.innerHTML = `${score}`;
 
-    //Array objeto score feedback?
     const infoFinal = document.createElement("h2");
     infoFinal.className = "estiloPuntos";
     feedBackScore.forEach((feedBackScore) => {
