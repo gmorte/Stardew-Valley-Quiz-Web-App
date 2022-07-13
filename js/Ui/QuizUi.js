@@ -43,10 +43,10 @@ export class QuizUi {
         choices.forEach((choice) => {
             const button = document.createElement("button");
             button.innerText = choice;
-            button.className = "button";
-            button.addEventListener("click", () =>
-                checkAnswerAndNextQuestion(choice)
-            );
+            button.className = "choicesButtons";
+            button.addEventListener("click", () => {
+                checkAnswerAndNextQuestion(choice, button);
+            });
             choi.appendChild(button);
         });
         element.append(choi);
