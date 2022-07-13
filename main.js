@@ -31,20 +31,22 @@ function renderQuiz() {
             newScore.getScore(),
             newQuiz.getQuestionsIndex(),
             newQuiz.getQuestionsLength(),
-            //Separar funcions? el correctAnswer només que comprobi si es correcte i pinti verd o vermell.
-            (chosenAnswer, buttonId) => {
-                if (newQuiz.correctAnswer(chosenAnswer)) {          
+            (choice, buttonId) => {
+                const choicesButtons = document.getElementsByClassName("choicesButtons");
+                const choicesButtonsArray = Array.from(choicesButtons);
+                choicesButtonsArray.forEach(element => {
+                    element.disabled = true;
+                });
+                if (newQuiz.correctAnswer(choice)) {
                     newScore.setScore(newTimer.getSeconds());
                     buttonId.style.backgroundColor = "green";
                 } else {
                     buttonId.style.backgroundColor = "red";
                 }
                 newTimer.clearTimer();
-                //Separar la forma de pasar els punts a al quiz
                 document.querySelector(
                     "#points"
                 ).innerHTML = `Score: ${newScore.getScore()}`;
-                //Separar el render?
                 setTimeout(() => {
                     newQuiz.setQuestionsIndex();
                     renderQuiz();
