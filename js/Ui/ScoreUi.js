@@ -1,3 +1,4 @@
+import { feedBackScore } from "../../data/feedBackScore.js";
 import { addPlayer } from "../Players.js";
 
 export function formScore(score, showRank, main) {
@@ -14,17 +15,11 @@ export function formScore(score, showRank, main) {
     //Array objeto score feedback?
     const infoFinal = document.createElement("h2");
     infoFinal.className = "estiloPuntos";
-    if (score < 50) {
-        infoFinal.innerHTML = "¡UUUUUH!";
-    } else if (score > 50 && score < 100) {
-        infoFinal.innerHTML = "¡MUY BIEN!";
-    } else if (score > 100 && score < 200) {
-        infoFinal.innerHTML = "!PERFECTO!";
-    } else if (score > 200 && score < 290) {
-        infoFinal.innerHTML = "¡EXPERTO!";
-    } else if (score > 290) {
-        infoFinal.innerHTML = "¡MASTER!";
-    }
+    feedBackScore.forEach((feedBackScore) => {
+        if (score > feedBackScore.minScore && score < feedBackScore.maxScore) {
+            infoFinal.innerHTML = feedBackScore.message;
+        }
+    });
 
     const label = document.createElement("label");
     label.for = "formNombre";

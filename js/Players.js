@@ -28,7 +28,6 @@ function saveLocalStoragePlayers(array) {
     localStorage.setItem("localPlayers", JSON.stringify(array));
 }
 
-//PASAR A RANKINGUI.JS?
 function addNewScoreToRanking(nombre, puntos) {
     const newScoreRow = document.createElement("tr");
     newScoreRow.className = "scoreRow";
@@ -41,18 +40,18 @@ function addNewScoreToRanking(nombre, puntos) {
     table.appendChild(newScoreRow);
 }
 
-function sortPlayersArray(jugadores) {
-    jugadores.sort((a, b) => {
-        if (a.puntos < b.puntos) {
+function sortPlayersArray(players) {
+    players.sort((a, b) => {
+        if (a.points < b.points) {
             return 1;
         }
-        if (a.puntos > b.puntos) {
+        if (a.points > b.points) {
             return -1;
         }
-        if (a.nombre.toLowerCase < b.nombre.toLowerCase) {
+        if (a.name.toLowerCase < b.name.toLowerCase) {
             return 1;
         }
-        if (a.nombre.toLowerCase > b.nombre.toLowerCase) {
+        if (a.name.toLowerCase > b.name.toLowerCase) {
             return -1;
         }
         return 0;
