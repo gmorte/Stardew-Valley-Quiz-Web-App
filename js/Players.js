@@ -1,29 +1,31 @@
-export { getJugadoresFromLocalStorage, addPlayer, sortJugadoresArray, addNewScoreToRanking};
+export {
+    getPlayersFromLocalStorage,
+    addPlayer,
+    sortPlayersArray,
+    addNewScoreToRanking,
+};
 
-function addPlayer(nombre, puntos) {
-    let jugadores = [];
-    jugadores = getJugadoresFromLocalStorage();
-
-    let element = { nombre: nombre, puntos: puntos };
-
-    jugadores.push(element);
-
-    saveLocalStorageJugadores(jugadores);
+function addPlayer(name, points) {
+    let players = [];
+    players = getPlayersFromLocalStorage();
+    let element = { name: name, points: points };
+    players.push(element);
+    saveLocalStoragePlayers(players);
 }
 
-function getJugadoresFromLocalStorage() {
-    let getJugadores = [];
-    var storedList = localStorage.getItem("localJugadores");
+function getPlayersFromLocalStorage() {
+    let getPlayers = [];
+    var storedList = localStorage.getItem("localPlayers");
     if (storedList == null) {
         storedList = [];
     } else {
-        getJugadores = JSON.parse(storedList);
+        getPlayers = JSON.parse(storedList);
     }
-    return getJugadores;
+    return getPlayers;
 }
 
-function saveLocalStorageJugadores(array) {
-    localStorage.setItem("localJugadores", JSON.stringify(array));
+function saveLocalStoragePlayers(array) {
+    localStorage.setItem("localPlayers", JSON.stringify(array));
 }
 
 //PASAR A RANKINGUI.JS?
@@ -39,7 +41,7 @@ function addNewScoreToRanking(nombre, puntos) {
     table.appendChild(newScoreRow);
 }
 
-function sortJugadoresArray(jugadores) {
+function sortPlayersArray(jugadores) {
     jugadores.sort((a, b) => {
         if (a.puntos < b.puntos) {
             return 1;

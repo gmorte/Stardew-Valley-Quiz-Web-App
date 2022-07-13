@@ -5,7 +5,8 @@ export class Quiz {
     questionsIndex = 0;
 
     constructor() {
-        this.questions = fisherYatesShuffle(data.slice(0, 10));
+        fisherYatesShuffle(data);
+        this.questions = data.slice(0, 10);
     }
 
     getQuestion() {

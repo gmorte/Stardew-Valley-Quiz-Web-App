@@ -1,13 +1,13 @@
-import { addNewScoreToRanking } from "../Players.js";
+import { addNewScoreToRanking, getPlayersFromLocalStorage, sortPlayersArray } from "../Players.js";
 
 export function showRankings(main) {
-    let jugadores = [];
-    //jugadores = getJugadoresFromLocalStorage();
-    //sortJugadoresArray(jugadores);
+    let players = [];
+    players = getPlayersFromLocalStorage();
+    sortPlayersArray(players);
 
     const MAX_RANKING = 10;
-    if (jugadores.length > MAX_RANKING) {
-        jugadores = jugadores.slice(0, 10);
+    if (players.length > MAX_RANKING) {
+        players = players.slice(0, 10);
     }
 
     const element = document.getElementById("app");
@@ -33,8 +33,8 @@ export function showRankings(main) {
     headPoints.innerHTML = "Puntos";
     tableHeader.append(headPoints);
 
-    jugadores.forEach((jugadores) => {
-        addNewScoreToRanking(jugadores.nombre, jugadores.puntos);
+    players.forEach((players) => {
+        addNewScoreToRanking(players.name, players.points);
     });
 
     const getTotalSavedScores = document.getElementsByClassName("scoreRow");

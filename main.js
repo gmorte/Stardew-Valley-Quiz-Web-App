@@ -9,7 +9,7 @@ import { formScore } from "./js/Ui/ScoreUi.js";
 const newHomeUi = new HomeUi();
 let newQuiz = new Quiz();
 let newScore = new Score();
-const TIME_LIMIT = 1;
+const TIME_LIMIT = 30;
 
 function resetGame(){
     newQuiz = new Quiz();
