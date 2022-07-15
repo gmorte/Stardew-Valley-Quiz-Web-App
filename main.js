@@ -16,7 +16,8 @@ function resetGame() {
     newScore = new Score();
 }
 
-function renderQuiz() {
+function renderQuiz(newQuizUi) {
+
     if (newQuiz.quizEnd()) {
         formScore(newScore.getScore(), () => showRankings(main), main);
     } else {
@@ -26,44 +27,46 @@ function renderQuiz() {
             renderQuiz();
         });
 
-        const newQuizUi = new QuizUi(newQuiz.getQuestion());
-        newQuizUi.showQuiz(
-            newScore.getScore(),
-            newQuiz.getQuestionsIndex(),
-            newQuiz.getQuestionsLength(),
-            (choice, buttonId) => {
-                const choicesButtons = document.getElementsByClassName("choicesButtons");
-                const choicesButtonsArray = Array.from(choicesButtons);
+        newQuizUi.showQuestion(newQuiz.getQuestion().question);
+
+        newQuizUi.showChoices(newQuiz.getQuestion().choices, (choice, buttonId) => {
+            const choicesButtons = document.getElementsByClassName("choicesButtons");
+            const choicesButtonsArray = Array.from(choicesButtons);
+            choicesButtonsArray.forEach(element => {
+                element.disabled = true;
+            });
+            if (newQuiz.correctAnswer(choice)) {
+                newScore.setScore(newTimer.getSeconds());
+                buttonId.style.backgroundColor = "green";
+            } else {
+                buttonId.style.backgroundColor = "red";
+                //Leave this implementation if i want to show the correct answer to the user.
                 choicesButtonsArray.forEach(element => {
-                    element.disabled = true;
+                    if (element.textContent == newQuiz.getQuestion().answer) {
+                        element.style.backgroundColor = "green";
+                    }
                 });
-                if (newQuiz.correctAnswer(choice)) {
-                    newScore.setScore(newTimer.getSeconds());
-                    buttonId.style.backgroundColor = "green";
-                } else {
-                    buttonId.style.backgroundColor = "red";
-                    //Leave this implementation if i want to show the correct answer to the user.
-                    choicesButtonsArray.forEach(element => {
-                        if(element.textContent == newQuiz.getQuestion().answer){
-                            element.style.backgroundColor = "green";
-                        }
-                    });
-                }
-                newTimer.clearTimer();
-                document.querySelector(
-                    "#points"
-                ).innerHTML = `Score: ${newScore.getScore()}`;
-                setTimeout(() => {
-                    newQuiz.setQuestionsIndex();
-                    renderQuiz();
-                }, 1000);
             }
-        );
+            newTimer.clearTimer();
+            document.querySelector(
+                "#points"
+            ).innerHTML = `Score: ${newScore.getScore()}`;
+            setTimeout(() => {
+                newQuiz.setQuestionsIndex();
+                renderQuiz(newQuizUi);
+            }, 1000);
+        });
     }
 }
 
+function startQuiz() {
+    const newQuizUi = new QuizUi();
+    newQuizUi.showQuiz();
+    renderQuiz(newQuizUi);
+}
+
 function main() {
-    newHomeUi.showHome(renderQuiz, () => showRankings(main));
+    newHomeUi.showHome(startQuiz, () => showRankings(main));
     resetGame();
 }
 
