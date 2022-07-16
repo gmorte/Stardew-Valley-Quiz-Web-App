@@ -6,17 +6,9 @@ import { showRankings } from "./js/Ui/RankingUi.js";
 import { Score } from "./js/Score.js";
 import { formScore } from "./js/Ui/ScoreUi.js";
 
-const newHomeUi = new HomeUi();
-let newQuiz = new Quiz();
-let newScore = new Score();
 const TIME_LIMIT = 30;
 
-function resetGame() {
-    newQuiz = new Quiz();
-    newScore = new Score();
-}
-
-function renderQuiz(newQuizUi) {
+function renderQuiz(newQuizUi, newQuiz, newScore) {
 
     if (newQuiz.quizEnd()) {
         formScore(newScore.getScore(), () => showRankings(main), main);
@@ -24,23 +16,21 @@ function renderQuiz(newQuizUi) {
         const newTimer = new Timer(TIME_LIMIT);
         newTimer.setTimer(() => {
             newQuiz.setQuestionsIndex();
-            renderQuiz();
+            renderQuiz(newQuizUi, newQuiz, newScore);
         });
-
         newQuizUi.showQuestion(newQuiz.getQuestion().question);
-
-        newQuizUi.showChoices(newQuiz.getQuestion().choices, (choice, buttonId) => {
+        newQuizUi.showScore(newScore.getScore());
+        newQuizUi.showChoices(newQuiz.getQuestion().choices, (clickedChoice, clickedButton) => {
             const choicesButtons = document.getElementsByClassName("choicesButtons");
             const choicesButtonsArray = Array.from(choicesButtons);
             choicesButtonsArray.forEach(element => {
                 element.disabled = true;
             });
-            if (newQuiz.correctAnswer(choice)) {
+            if (newQuiz.correctAnswer(clickedChoice)) {
                 newScore.setScore(newTimer.getSeconds());
-                buttonId.style.backgroundColor = "green";
+                clickedButton.style.backgroundColor = "green";
             } else {
-                buttonId.style.backgroundColor = "red";
-                //Leave this implementation if i want to show the correct answer to the user.
+                clickedButton.style.backgroundColor = "red";
                 choicesButtonsArray.forEach(element => {
                     if (element.textContent == newQuiz.getQuestion().answer) {
                         element.style.backgroundColor = "green";
@@ -53,21 +43,23 @@ function renderQuiz(newQuizUi) {
             ).innerHTML = `Score: ${newScore.getScore()}`;
             setTimeout(() => {
                 newQuiz.setQuestionsIndex();
-                renderQuiz(newQuizUi);
+                renderQuiz(newQuizUi, newQuiz, newScore);
             }, 1000);
         });
     }
 }
 
 function startQuiz() {
+    const newQuiz = new Quiz();
     const newQuizUi = new QuizUi();
+    const newScore = new Score();
     newQuizUi.showQuiz();
-    renderQuiz(newQuizUi);
+    renderQuiz(newQuizUi, newQuiz, newScore);
 }
 
 function main() {
+    const newHomeUi = new HomeUi();
     newHomeUi.showHome(startQuiz, () => showRankings(main));
-    resetGame();
 }
 
 main();

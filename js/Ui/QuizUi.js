@@ -50,7 +50,6 @@ export class QuizUi {
     showChoices(choi, checkAnswerAndNextQuestion) {
         const choic = document.querySelector("#choices");
         choic.innerHTML = "";
-
         let choices = fisherYatesShuffle(choi);
         choices.forEach((choice) => {
             const button = document.createElement("button");
